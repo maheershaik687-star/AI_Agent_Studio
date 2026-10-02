@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Agent Activity Log</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>✦</span>
+            Agent<span>Logs</span>
+        </div>
+
+        <nav>
+            <a href="#">Dashboard</a>
+            <a href="#">Agents</a>
+            <a class="active" href="#">Activity</a>
+            <a href="#">Tasks</a>
+        </nav>
+
+        <div class="live">
+            <span></span>
+            LIVE
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- HEADER -->
+
+        <section class="hero">
+
+            <div>
+
+                <p class="eyebrow">
+                    SYSTEM ACTIVITY
+                </p>
+
+                <h1>
+                    Agent Activity
+                    <span>Log</span>
+                </h1>
+
+                <p class="subtitle">
+                    Track everything happening across your AI agent ecosystem.
+                </p>
+
+            </div>
+
+            <button
+                class="export-btn"
+                onclick="exportLogs()">
+                ↓ Export Logs
+            </button>
+
+        </section>
+
+
+        <!-- SUMMARY -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    ◈
+                </div>
+
+                <div>
+                    <span>Total Events</span>
+                    <strong id="totalEvents">
+                        2,841
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div>
+                    <span>Successful</span>
+                    <strong>
+                        2,713
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon yellow">
+                    !
+                </div>
+
+                <div>
+                    <span>Warnings</span>
+                    <strong>
+                        96
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon red">
+                    ×
+                </div>
+
+                <div>
+                    <span>Errors</span>
+                    <strong>
+                        32
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FILTER BAR -->
+
+        <section class="toolbar">
+
+            <div class="filters">
+
+                <button
+                    class="filter active"
+                    onclick="filterLogs('all', this)">
+                    All Events
+                </button>
+
+                <button
+                    class="filter"
+                    onclick="filterLogs('success', this)">
+                    Success
+                </button>
+
+                <button
+                    class="filter"
+                    onclick="filterLogs('warning', this)">
+                    Warning
+                </button>
+
+                <button
+                    class="filter"
+                    onclick="filterLogs('error', this)">
+                    Errors
+                </button>
+
+            </div>
+
+
+            <div class="search">
+
+                🔍
+
+                <input
+                    id="search"
+                    type="text"
+                    placeholder="Search activity..."
+                    oninput="searchLogs()">
+
+            </div>
+
+        </section>
+
+
+        <!-- ACTIVITY PANEL -->
+
+        <section class="activity-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span>
+                        OCTOBER 02, 2026
+                    </span>
+
+                    <h2>
+                        Today's Activity
+                    </h2>
+
+                </div>
+
+                <button
+                    class="clear-btn"
+                    onclick="clearLogs()">
+                    Clear
+                </button>
+
+            </div>
+
+
+            <div
+                class="timeline"
+                id="timeline">
+
+
+                <!-- EVENT -->
+
+                <div class="event"
+                     data-type="success">
+
+                    <div class="event-time">
+                        21:37:42
+                    </div>
+
+                    <div class="event-line">
+
+                        <span class="event-dot success">
+                            ✓
+                        </span>
+
+                    </div>
+
+                    <div class="event-content">
+
+                        <div class="event-title">
+
+                            <h3>
+                                Task completed successfully
+                            </h3>
+
+                            <span class="badge success">
+                                SUCCESS
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Research Bot completed competitor analysis
+                            and generated a 24-page report.
+                        </p>
+
+                        <div class="event-meta">
+
+                            <span>
+                                🤖 Research Bot
+                            </span>
+
+                            <span>
+                                Task #RB-8421
+                            </span>
+
+                            <span>
+                                1.8s
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EVENT -->
+
+                <div class="event"
+                     data-type="success">
+
+                    <div class="event-time">
+                        21:35:18
+                    </div>
+
+                    <div class="event-line">
+
+                        <span class="event-dot success">
+                            ✓
+                        </span>
+
+                    </div>
+
+                    <div class="event-content">
+
+                        <div class="event-title">
+
+                            <h3>
+                                Knowledge base updated
+                            </h3>
+
+                            <span class="badge success">
+                                SUCCESS
+                            </span>
+
+                        </div>
+
+                        <p>
+                            1,248 new documents were indexed into
+                            the vector knowledge store.
+                        </p>
+
+                        <div class="event-meta">
+
+                            <span>
+                                🧠 Knowledge Agent
+                            </span>
+
+                            <span>
+                                Index #KB-192
+                            </span>
+
+                            <span>
+                                4.2s
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WARNING -->
+
+                <div class="event"
+                     data-type="warning">
+
+                    <div class="event-time">
+                        21:32:09
+                    </div>
+
+                    <div class="event-line">
+
+                        <span class="event-dot warning">
+                            !
+                        </span>
+
+                    </div>
+
+                    <div class="event-content">
+
+                        <div class="event-title">
+
+                            <h3>
+                                High memory usage detected
+                            </h3>
+
+                            <span class="badge warning">
+                                WARNING
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Code Writer is currently using 89%
+                            of available memory.
+                        </p>
+
+                        <div class="event-meta">
+
+                            <span>
+                                💻 Code Writer
+                            </span>
+
+                            <span>
+                                Memory Monitor
+                            </span>
+
+                            <span>
+                                89%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ERROR -->
+
+                <div class="event"
+                     data-type="error">
+
+                    <div class="event-time">
+                        21:28:54
+                    </div>
+
+                    <div class="event-line">
+
+                        <span class="event-dot error">
+                            ×
+                        </span>
+
+                    </div>
+
+                    <div class="event-content">
+
+                        <div class="event-title">
+
+                            <h3>
+                                API request failed
+                            </h3>
+
+                            <span class="badge error">
+                                ERROR
+                            </span>
+
+                        </div>
+
+                        <p>
+                            External data provider returned HTTP 503.
+                            Automatic retry scheduled.
+                        </p>
+
+                        <div class="event-meta">
+
+                            <span>
+                                🌐 Research Bot
+                            </span>
+
+                            <span>
+                                API-503
+                            </span>
+
+                            <span>
+                                Retry: 30s
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SUCCESS -->
+
+                <div class="event"
+                     data-type="success">
+
+                    <div class="event-time">
+                        21:25:31
+                    </div>
+
+                    <div class="event-line">
+
+                        <span class="event-dot success">
+                            ✓
+                        </span>
+
+                    </div>
+
+                    <div class="event-content">
+
+                        <div class="event-title">
+
+                            <h3>
+                                Agent initialized
+                            </h3>
+
+                            <span class="badge success">
+                                SUCCESS
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Customer Support Agent started successfully
+                            and is ready to process requests.
+                        </p>
+
+                        <div class="event-meta">
+
+                            <span>
+                                🎧 Support Agent
+                            </span>
+
+                            <span>
+                                Agent Start
+                            </span>
+
+                            <span>
+                                420ms
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <div
+        class="toast"
+        id="toast">
+        Logs updated
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <h2>✦ AI Studio</h2>
+
+        <nav>
+
+            <a class="active" href="#">Dashboard</a>
+            <a href="#">Agents</a>
+            <a href="#">Tasks</a>
+            <a href="#">Activity</a>
+            <a href="#">Settings</a>
+
+        </nav>
+
+    </aside>
+
+
+    <main class="main">
+
+        <header>
+
+            <div>
+                <p class="label">OVERVIEW</p>
+                <h1>AI Agent Dashboard</h1>
+            </div>
+
+            <button id="refreshBtn">
+                ↻ Refresh
+            </button>
+
+        </header>
+
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <span>Active Agents</span>
+                <strong>24</strong>
+                <small>+12% this week</small>
+            </div>
+
+            <div class="stat-card">
+                <span>Tasks Completed</span>
+                <strong>1,284</strong>
+                <small>+18% this week</small>
+            </div>
+
+            <div class="stat-card">
+                <span>Success Rate</span>
+                <strong>98.6%</strong>
+                <small>+2.4% this week</small>
+            </div>
+
+            <div class="stat-card">
+                <span>Tokens Used</span>
+                <strong>842K</strong>
+                <small>12% remaining</small>
+            </div>
+
+        </section>
+
+
+        <section class="dashboard-grid">
+
+            <div class="panel chart-panel">
+
+                <div class="panel-header">
+
+                    <h2>Agent Performance</h2>
+
+                    <select>
+                        <option>Last 7 days</option>
+                        <option>Last 30 days</option>
+                    </select>
+
+                </div>
+
+                <div class="chart">
+
+                    <div class="bar" style="height:40%"></div>
+                    <div class="bar" style="height:55%"></div>
+                    <div class="bar" style="height:45%"></div>
+                    <div class="bar" style="height:70%"></div>
+                    <div class="bar" style="height:62%"></div>
+                    <div class="bar" style="height:82%"></div>
+                    <div class="bar" style="height:92%"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <h2>Top Agents</h2>
+
+                <div class="agent">
+                    <span>🤖</span>
+                    <div>
+                        <strong>ResearchBot</strong>
+                        <small>98% success</small>
+                    </div>
+                </div>
+
+                <div class="agent">
+                    <span>🧠</span>
+                    <div>
+                        <strong>DataMind</strong>
+                        <small>96% success</small>
+                    </div>
+                </div>
+
+                <div class="agent">
+                    <span>⚡</span>
+                    <div>
+                        <strong>AutoPilot</strong>
+                        <small>95% success</small>
+                    </div>
+                </div>
+
+                <div class="agent">
+                    <span>🔍</span>
+                    <div>
+                        <strong>SearchAI</strong>
+                        <small>93% success</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="panel">
+
+            <div class="panel-header">
+                <h2>Recent Tasks</h2>
+                <a href="#">View All</a>
+            </div>
+
+            <div class="task">
+
+                <div>
+                    <strong>Analyze customer feedback</strong>
+                    <small>ResearchBot</small>
+                </div>
+
+                <span class="success">Completed</span>
+
+            </div>
+
+            <div class="task">
+
+                <div>
+                    <strong>Generate monthly report</strong>
+                    <small>DataMind</small>
+                </div>
+
+                <span class="success">Completed</span>
+
+            </div>
+
+            <div class="task">
+
+                <div>
+                    <strong>Process incoming emails</strong>
+                    <small>AutoPilot</small>
+                </div>
+
+                <span class="pending">Running</span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

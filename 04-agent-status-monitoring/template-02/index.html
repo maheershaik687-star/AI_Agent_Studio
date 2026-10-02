@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Operations Center</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">AI</div>
+
+            <div>
+                <strong>OPS</strong>
+                <span>CONTROL</span>
+            </div>
+        </div>
+
+
+        <nav>
+
+            <a class="active" href="#">
+                <span>◈</span>
+                Overview
+            </a>
+
+            <a href="#">
+                <span>◉</span>
+                Agents
+            </a>
+
+            <a href="#">
+                <span>▣</span>
+                Infrastructure
+            </a>
+
+            <a href="#">
+                <span>◌</span>
+                Events
+            </a>
+
+            <a href="#">
+                <span>⚙</span>
+                Settings
+            </a>
+
+        </nav>
+
+
+        <div class="system-box">
+
+            <span class="status-dot"></span>
+
+            <div>
+                <strong>System Online</strong>
+                <small>All services operational</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+                <p>OPERATIONS CENTER</p>
+                <h1>System Overview</h1>
+            </div>
+
+            <div class="top-actions">
+
+                <button
+                    class="auto-refresh"
+                    id="autoRefresh"
+                    onclick="toggleAutoRefresh()">
+
+                    <span class="switch"></span>
+
+                    Auto Refresh
+
+                </button>
+
+                <button
+                    class="refresh"
+                    onclick="refreshAgents()">
+
+                    ↻
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- SYSTEM HEALTH -->
+
+        <section class="health-banner">
+
+            <div class="health-main">
+
+                <div class="health-ring">
+                    <div>
+                        <strong>98</strong>
+                        <span>%</span>
+                    </div>
+                </div>
+
+                <div>
+
+                    <span class="small-title">
+                        SYSTEM HEALTH
+                    </span>
+
+                    <h2>Excellent</h2>
+
+                    <p>
+                        All critical AI services are operating normally.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="health-stats">
+
+                <div>
+                    <span>Uptime</span>
+                    <strong>99.98%</strong>
+                </div>
+
+                <div>
+                    <span>Latency</span>
+                    <strong id="latency">124ms</strong>
+                </div>
+
+                <div>
+                    <span>Requests</span>
+                    <strong id="requests">24.8K</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AGENT HEADER -->
+
+        <div class="section-header">
+
+            <div>
+                <span>AI INFRASTRUCTURE</span>
+                <h2>Agent Fleet</h2>
+            </div>
+
+            <div class="filters">
+
+                <button
+                    class="filter active"
+                    onclick="filterAgents('all', this)">
+                    All
+                </button>
+
+                <button
+                    class="filter"
+                    onclick="filterAgents('online', this)">
+                    Online
+                </button>
+
+                <button
+                    class="filter"
+                    onclick="filterAgents('warning', this)">
+                    Warning
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- AGENTS -->
+
+        <section class="agents-grid" id="agentsGrid">
+
+
+            <div class="agent-card"
+                 data-status="online">
+
+                <div class="agent-card-top">
+
+                    <div class="agent-symbol blue">
+                        RB
+                    </div>
+
+                    <span class="status online">
+                        Online
+                    </span>
+
+                </div>
+
+                <h3>Research Bot</h3>
+
+                <p>Research & Intelligence</p>
+
+                <div class="metric">
+
+                    <div>
+                        <span>CPU</span>
+                        <strong>34%</strong>
+                    </div>
+
+                    <div>
+                        <span>Memory</span>
+                        <strong>61%</strong>
+                    </div>
+
+                </div>
+
+                <div class="mini-progress">
+                    <span style="width:34%"></span>
+                </div>
+
+                <div class="card-footer">
+                    <span>Response</span>
+                    <strong>182ms</strong>
+                </div>
+
+            </div>
+
+
+            <div class="agent-card"
+                 data-status="online">
+
+                <div class="agent-card-top">
+
+                    <div class="agent-symbol purple">
+                        DA
+                    </div>
+
+                    <span class="status online">
+                        Online
+                    </span>
+
+                </div>
+
+                <h3>Data Analyzer</h3>
+
+                <p>Data Processing Agent</p>
+
+                <div class="metric">
+
+                    <div>
+                        <span>CPU</span>
+                        <strong>48%</strong>
+                    </div>
+
+                    <div>
+                        <span>Memory</span>
+                        <strong>72%</strong>
+                    </div>
+
+                </div>
+
+                <div class="mini-progress purple-bar">
+                    <span style="width:48%"></span>
+                </div>
+
+                <div class="card-footer">
+                    <span>Response</span>
+                    <strong>241ms</strong>
+                </div>
+
+            </div>
+
+
+            <div class="agent-card"
+                 data-status="warning">
+
+                <div class="agent-card-top">
+
+                    <div class="agent-symbol orange">
+                        CW
+                    </div>
+
+                    <span class="status warning">
+                        Warning
+                    </span>
+
+                </div>
+
+                <h3>Code Writer</h3>
+
+                <p>Development Agent</p>
+
+                <div class="metric">
+
+                    <div>
+                        <span>CPU</span>
+                        <strong>83%</strong>
+                    </div>
+
+                    <div>
+                        <span>Memory</span>
+                        <strong>89%</strong>
+                    </div>
+
+                </div>
+
+                <div class="mini-progress orange-bar">
+                    <span style="width:83%"></span>
+                </div>
+
+                <div class="card-footer">
+                    <span>Response</span>
+                    <strong>493ms</strong>
+                </div>
+
+            </div>
+
+
+            <div class="agent-card"
+                 data-status="online">
+
+                <div class="agent-card-top">
+
+                    <div class="agent-symbol green">
+                        CS
+                    </div>
+
+                    <span class="status online">
+                        Online
+                    </span>
+
+                </div>
+
+                <h3>Customer Support</h3>
+
+                <p>Support Automation</p>
+
+                <div class="metric">
+
+                    <div>
+                        <span>CPU</span>
+                        <strong>27%</strong>
+                    </div>
+
+                    <div>
+                        <span>Memory</span>
+                        <strong>48%</strong>
+                    </div>
+
+                </div>
+
+                <div class="mini-progress green-bar">
+                    <span style="width:27%"></span>
+                </div>
+
+                <div class="card-footer">
+                    <span>Response</span>
+                    <strong>119ms</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACTIVITY -->
+
+        <section class="bottom-grid">
+
+            <div class="activity-panel">
+
+                <div class="section-header">
+
+                    <div>
+                        <span>REAL-TIME</span>
+                        <h2>System Activity</h2>
+                    </div>
+
+                    <span class="live">
+                        ● LIVE
+                    </span>
+
+                </div>
+
+
+                <div id="activityList">
+
+                    <div class="activity">
+                        <span class="activity-dot green"></span>
+
+                        <div>
+                            <strong>Research Bot completed analysis</strong>
+                            <small>Just now</small>
+                        </div>
+
+                        <span class="activity-time">
+                            182ms
+                        </span>
+                    </div>
+
+
+                    <div class="activity">
+                        <span class="activity-dot blue"></span>
+
+                        <div>
+                            <strong>Data Analyzer processed dataset</strong>
+                            <small>2 min ago</small>
+                        </div>
+
+                        <span class="activity-time">
+                            241ms
+                        </span>
+                    </div>
+
+
+                    <div class="activity">
+                        <span class="activity-dot orange"></span>
+
+                        <div>
+                            <strong>Code Writer reached high CPU</strong>
+                            <small>5 min ago</small>
+                        </div>
+
+                        <span class="activity-time">
+                            493ms
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-panel">
+
+                <span>QUICK STATUS</span>
+
+                <div class="quick-row">
+                    <span>API Gateway</span>
+                    <strong>100%</strong>
+                </div>
+
+                <div class="quick-row">
+                    <span>AI Engine</span>
+                    <strong>99.9%</strong>
+                </div>
+
+                <div class="quick-row">
+                    <span>Database</span>
+                    <strong>100%</strong>
+                </div>
+
+                <div class="quick-row">
+                    <span>Vector Store</span>
+                    <strong>99.8%</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <div class="toast" id="toast">
+        Updated
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
