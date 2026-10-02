@@ -1,0 +1,1 @@
+function selectTemplate(){document.getElementById("msg").textContent="Template selected. Customize it before saving."}

@@ -1,0 +1,4 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trigger Library</title><link rel="stylesheet" href="style.css"></head>
+<body><main class="page"><p class="tag">AI AGENTS</p><h1>Trigger Library</h1><p class="muted">Choose an event that can start an agent workflow.</p><article class="card"><div><h2>New Customer</h2><p>Customer is added</p></div><span class="status">Data</span></article><article class="card"><div><h2>Every Morning</h2><p>Workflow starts at a selected time</p></div><span class="status">Schedule</span></article><article class="card"><div><h2>Job Failed</h2><p>Another automation reports an error</p></div><span class="status">System</span></article><select id="filter" onchange="filterCards()"><option>All</option><option>Data</option><option>Schedule</option><option>System</option></select><p id="msg"></p></main><script src="script.js"></script></body></html>

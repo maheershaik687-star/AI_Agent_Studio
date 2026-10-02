@@ -1,0 +1,1 @@
+function resolve(){document.querySelectorAll(".status").forEach(x=>{x.textContent="Resolved";x.className="status done"});document.getElementById("msg").textContent="All visible issues resolved."}

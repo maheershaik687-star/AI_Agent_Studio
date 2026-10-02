@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Agent Workflow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="layout">
+        <aside>
+            <h2>AgentFlow</h2>
+            <a href="../error-retry/index.html">Error & Retry</a>
+            <a href="../multi-agent/index.html">Multi-Agent</a>
+            <a href="../automation-builder/index.html">Automation Builder</a>
+            <a href="../trigger-action/index.html">Trigger & Action</a>
+        </aside>
+
+        <main>
+            <p class="small">AI AGENTS</p>
+            <h1>Multi-Agent Workflow</h1>
+            <p class="intro">Watch different agents work together to complete one task.</p>
+
+            <div class="workflow">
+                <div class="step" id="step1"><b>1. Research Agent</b><span>Waiting</span></div>
+                <div class="arrow">↓</div>
+                <div class="step" id="step2"><b>2. Analysis Agent</b><span>Waiting</span></div>
+                <div class="arrow">↓</div>
+                <div class="step" id="step3"><b>3. Review Agent</b><span>Waiting</span></div>
+                <div class="arrow">↓</div>
+                <div class="step" id="step4"><b>4. Final Agent</b><span>Waiting</span></div>
+            </div>
+
+            <button onclick="startWorkflow()">Start Workflow</button>
+            <p id="message"></p>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
