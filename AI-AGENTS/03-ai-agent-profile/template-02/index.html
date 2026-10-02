@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Agent Configuration</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            ✦
+        </div>
+
+        <nav>
+
+            <a href="../../index.html">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#">
+                <span>🤖</span>
+                Agents
+            </a>
+
+            <a class="active">
+                <span>⚙</span>
+                Configuration
+            </a>
+
+            <a href="#">
+                <span>📋</span>
+                Tasks
+            </a>
+
+            <a href="#">
+                <span>📊</span>
+                Analytics
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main>
+
+        <header class="topbar">
+
+            <div>
+
+                <div class="breadcrumb">
+                    Agents / Research Bot
+                </div>
+
+                <h1>
+                    Research Bot
+                </h1>
+
+            </div>
+
+            <div class="top-actions">
+
+                <span class="online">
+                    ● Online
+                </span>
+
+                <button
+                    onclick="saveChanges()">
+                    Save Changes
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- AGENT SUMMARY -->
+
+        <section class="agent-summary">
+
+            <div class="agent-icon">
+                🔬
+            </div>
+
+            <div class="summary-info">
+
+                <h2>
+                    Research Bot
+                </h2>
+
+                <p>
+                    Autonomous research and
+                    information analysis agent.
+                </p>
+
+                <div class="summary-tags">
+
+                    <span>Research</span>
+                    <span>AI Agent</span>
+                    <span>Production</span>
+
+                </div>
+
+            </div>
+
+            <div class="summary-stat">
+
+                <strong>
+                    98.4%
+                </strong>
+
+                <span>
+                    Success Rate
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONFIGURATION -->
+
+        <section class="content-grid">
+
+
+            <div class="settings-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <h2>
+                            General Settings
+                        </h2>
+
+                        <p>
+                            Configure the basic
+                            behavior of your agent.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Agent Name
+                    </label>
+
+                    <input
+                        id="agentName"
+                        value="Research Bot">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Description
+                    </label>
+
+                    <textarea
+                        id="description">Autonomous research and information analysis agent.</textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        System Instructions
+                    </label>
+
+                    <textarea
+                        class="large">You are a professional research assistant. Find accurate information, analyze sources and provide structured answers.</textarea>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Model
+                        </label>
+
+                        <select>
+
+                            <option>
+                                GPT-5.6
+                            </option>
+
+                            <option>
+                                GPT-5
+                            </option>
+
+                            <option>
+                                Claude
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Temperature
+                        </label>
+
+                        <input
+                            type="number"
+                            value="0.4"
+                            min="0"
+                            max="1"
+                            step="0.1">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT -->
+
+            <aside class="right-panel">
+
+
+                <div class="settings-card">
+
+                    <h2>
+                        Agent Status
+                    </h2>
+
+                    <div class="status-box">
+
+                        <span class="green-dot"></span>
+
+                        <div>
+
+                            <strong>
+                                Operational
+                            </strong>
+
+                            <small>
+                                All systems normal
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-card">
+
+                    <h2>
+                        Capabilities
+                    </h2>
+
+
+                    <label class="toggle-row">
+
+                        <span>
+
+                            <strong>
+                                Web Search
+                            </strong>
+
+                            <small>
+                                Search external sources
+                            </small>
+
+                        </span>
+
+                        <input
+                            type="checkbox"
+                            checked>
+
+                    </label>
+
+
+                    <label class="toggle-row">
+
+                        <span>
+
+                            <strong>
+                                Data Analysis
+                            </strong>
+
+                            <small>
+                                Analyze datasets
+                            </small>
+
+                        </span>
+
+                        <input
+                            type="checkbox"
+                            checked>
+
+                    </label>
+
+
+                    <label class="toggle-row">
+
+                        <span>
+
+                            <strong>
+                                Memory
+                            </strong>
+
+                            <small>
+                                Store conversation context
+                            </small>
+
+                        </span>
+
+                        <input
+                            type="checkbox"
+                            checked>
+
+                    </label>
+
+
+                    <label class="toggle-row">
+
+                        <span>
+
+                            <strong>
+                                Code Execution
+                            </strong>
+
+                            <small>
+                                Execute code tools
+                            </small>
+
+                        </span>
+
+                        <input
+                            type="checkbox">
+
+                    </label>
+
+                </div>
+
+
+                <div class="settings-card">
+
+                    <h2>
+                        Danger Zone
+                    </h2>
+
+                    <button
+                        class="danger"
+                        onclick="deleteAgent()">
+
+                        Delete Agent
+
+                    </button>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div id="toast"
+     class="toast">
+
+    Changes saved successfully.
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

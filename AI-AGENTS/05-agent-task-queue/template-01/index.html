@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Task Queue</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>✦</span>
+            Task<span>Flow</span>
+        </div>
+
+        <nav>
+            <a href="#">Dashboard</a>
+            <a class="active" href="#">Tasks</a>
+            <a href="#">Agents</a>
+            <a href="#">Analytics</a>
+        </nav>
+
+        <button class="create-btn" onclick="openTaskForm()">
+            + New Task
+        </button>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+
+            <div>
+                <p class="eyebrow">AI WORKFLOW</p>
+
+                <h1>
+                    Agent Task
+                    <span>Queue</span>
+                </h1>
+
+                <p class="subtitle">
+                    Organize, monitor and manage tasks handled by your AI agents.
+                </p>
+            </div>
+
+            <div class="queue-status">
+                <span class="pulse"></span>
+                Queue Processing
+            </div>
+
+        </section>
+
+
+        <!-- STATS -->
+
+        <section class="stats">
+
+            <div class="stat">
+                <div class="stat-icon blue">◈</div>
+
+                <div>
+                    <span>Total Tasks</span>
+                    <strong id="totalTasks">24</strong>
+                </div>
+            </div>
+
+
+            <div class="stat">
+                <div class="stat-icon yellow">◷</div>
+
+                <div>
+                    <span>Queued</span>
+                    <strong id="queuedTasks">8</strong>
+                </div>
+            </div>
+
+
+            <div class="stat">
+                <div class="stat-icon purple">⚡</div>
+
+                <div>
+                    <span>Running</span>
+                    <strong id="runningTasks">5</strong>
+                </div>
+            </div>
+
+
+            <div class="stat">
+                <div class="stat-icon green">✓</div>
+
+                <div>
+                    <span>Completed</span>
+                    <strong id="completedTasks">11</strong>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- TOOLBAR -->
+
+        <section class="toolbar">
+
+            <div class="filters">
+
+                <button
+                    class="filter active"
+                    onclick="filterTasks('all', this)">
+                    All
+                </button>
+
+                <button
+                    class="filter"
+                    onclick="filterTasks('high', this)">
+                    High Priority
+                </button>
+
+                <button
+                    class="filter"
+                    onclick="filterTasks('research', this)">
+                    Research
+                </button>
+
+                <button
+                    class="filter"
+                    onclick="filterTasks('code', this)">
+                    Development
+                </button>
+
+            </div>
+
+            <div class="search">
+                🔍
+                <input
+                    id="searchInput"
+                    type="text"
+                    placeholder="Search tasks..."
+                    oninput="searchTasks()">
+            </div>
+
+        </section>
+
+
+        <!-- KANBAN -->
+
+        <section class="kanban">
+
+
+            <!-- QUEUED -->
+
+            <div class="column">
+
+                <div class="column-header">
+
+                    <div>
+                        <span class="column-dot queued"></span>
+                        <strong>Queued</strong>
+                    </div>
+
+                    <span class="count">8</span>
+
+                </div>
+
+
+                <div class="task-list" id="queuedColumn">
+
+
+                    <div class="task-card"
+                         data-priority="high"
+                         data-category="research">
+
+                        <div class="task-top">
+                            <span class="priority high">HIGH</span>
+                            <button onclick="removeTask(this)">•••</button>
+                        </div>
+
+                        <h3>Analyze competitor websites</h3>
+
+                        <p>
+                            Research pricing, features and market positioning.
+                        </p>
+
+                        <div class="task-tags">
+                            <span>Research</span>
+                            <span>Web</span>
+                        </div>
+
+                        <div class="task-footer">
+
+                            <div class="agent">
+                                <span class="avatar blue-avatar">RB</span>
+                                Research Bot
+                            </div>
+
+                            <span>2m ago</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="task-card"
+                         data-priority="medium"
+                         data-category="code">
+
+                        <div class="task-top">
+                            <span class="priority medium">MEDIUM</span>
+                            <button onclick="removeTask(this)">•••</button>
+                        </div>
+
+                        <h3>Build authentication API</h3>
+
+                        <p>
+                            Create secure login and token authentication endpoints.
+                        </p>
+
+                        <div class="task-tags">
+                            <span>Development</span>
+                            <span>API</span>
+                        </div>
+
+                        <div class="task-footer">
+
+                            <div class="agent">
+                                <span class="avatar purple-avatar">CW</span>
+                                Code Writer
+                            </div>
+
+                            <span>6m ago</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="task-card"
+                         data-priority="high"
+                         data-category="research">
+
+                        <div class="task-top">
+                            <span class="priority high">HIGH</span>
+                            <button onclick="removeTask(this)">•••</button>
+                        </div>
+
+                        <h3>Summarize market report</h3>
+
+                        <p>
+                            Generate an executive summary from the latest report.
+                        </p>
+
+                        <div class="task-tags">
+                            <span>Research</span>
+                            <span>AI</span>
+                        </div>
+
+                        <div class="task-footer">
+
+                            <div class="agent">
+                                <span class="avatar green-avatar">DA</span>
+                                Data Agent
+                            </div>
+
+                            <span>11m ago</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RUNNING -->
+
+            <div class="column">
+
+                <div class="column-header">
+
+                    <div>
+                        <span class="column-dot running"></span>
+                        <strong>Running</strong>
+                    </div>
+
+                    <span class="count">5</span>
+
+                </div>
+
+
+                <div class="task-list">
+
+                    <div class="task-card running-card"
+                         data-priority="high"
+                         data-category="research">
+
+                        <div class="task-top">
+                            <span class="priority high">HIGH</span>
+                            <span class="running-label">RUNNING</span>
+                        </div>
+
+                        <h3>Generate market analysis</h3>
+
+                        <p>
+                            Processing customer and competitor data.
+                        </p>
+
+                        <div class="progress-label">
+                            <span>Progress</span>
+                            <strong>72%</strong>
+                        </div>
+
+                        <div class="progress">
+                            <span style="width:72%"></span>
+                        </div>
+
+                        <div class="task-footer">
+
+                            <div class="agent">
+                                <span class="avatar blue-avatar">RB</span>
+                                Research Bot
+                            </div>
+
+                            <span>Running</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="task-card running-card"
+                         data-priority="medium"
+                         data-category="code">
+
+                        <div class="task-top">
+                            <span class="priority medium">MEDIUM</span>
+                            <span class="running-label">RUNNING</span>
+                        </div>
+
+                        <h3>Optimize database queries</h3>
+
+                        <p>
+                            Analyze slow queries and generate optimization suggestions.
+                        </p>
+
+                        <div class="progress-label">
+                            <span>Progress</span>
+                            <strong>45%</strong>
+                        </div>
+
+                        <div class="progress">
+                            <span style="width:45%"></span>
+                        </div>
+
+                        <div class="task-footer">
+
+                            <div class="agent">
+                                <span class="avatar purple-avatar">CW</span>
+                                Code Writer
+                            </div>
+
+                            <span>Running</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- COMPLETED -->
+
+            <div class="column">
+
+                <div class="column-header">
+
+                    <div>
+                        <span class="column-dot completed"></span>
+                        <strong>Completed</strong>
+                    </div>
+
+                    <span class="count">11</span>
+
+                </div>
+
+
+                <div class="task-list">
+
+                    <div class="task-card completed-card">
+
+                        <div class="task-top">
+                            <span class="priority done">DONE</span>
+                            <span>✓</span>
+                        </div>
+
+                        <h3>Customer feedback analysis</h3>
+
+                        <p>
+                            Analyzed 4,821 customer feedback responses.
+                        </p>
+
+                        <div class="task-tags">
+                            <span>Analysis</span>
+                            <span>Completed</span>
+                        </div>
+
+                        <div class="task-footer">
+                            <div class="agent">
+                                <span class="avatar green-avatar">DA</span>
+                                Data Agent
+                            </div>
+
+                            <span>12m ago</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="task-card completed-card">
+
+                        <div class="task-top">
+                            <span class="priority done">DONE</span>
+                            <span>✓</span>
+                        </div>
+
+                        <h3>Generate weekly report</h3>
+
+                        <p>
+                            Weekly business performance report generated.
+                        </p>
+
+                        <div class="task-tags">
+                            <span>Reports</span>
+                            <span>Completed</span>
+                        </div>
+
+                        <div class="task-footer">
+                            <div class="agent">
+                                <span class="avatar blue-avatar">RB</span>
+                                Research Bot
+                            </div>
+
+                            <span>24m ago</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- MODAL -->
+
+    <div class="modal" id="taskModal">
+
+        <div class="modal-box">
+
+            <button
+                class="close"
+                onclick="closeTaskForm()">
+                ×
+            </button>
+
+            <p class="eyebrow">NEW WORKFLOW</p>
+
+            <h2>Create Task</h2>
+
+            <input
+                id="taskTitle"
+                type="text"
+                placeholder="Task title">
+
+            <textarea
+                id="taskDescription"
+                placeholder="Task description"></textarea>
+
+            <select id="taskPriority">
+                <option value="medium">Medium Priority</option>
+                <option value="high">High Priority</option>
+                <option value="low">Low Priority</option>
+            </select>
+
+            <button
+                class="submit-btn"
+                onclick="createTask()">
+                Create Task
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="toast" id="toast">
+        Task created
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
