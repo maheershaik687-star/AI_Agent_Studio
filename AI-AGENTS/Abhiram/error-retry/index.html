@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Error & Retry</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="layout">
+        <aside>
+            <h2>AgentFlow</h2>
+            <a href="../error-retry/index.html">Error & Retry</a>
+            <a href="../multi-agent/index.html">Multi-Agent</a>
+            <a href="../automation-builder/index.html">Automation Builder</a>
+            <a href="../trigger-action/index.html">Trigger & Action</a>
+        </aside>
+
+        <main>
+            <header>
+                <div>
+                    <p class="small">AI AGENTS</p>
+                    <h1>Agent Error & Retry</h1>
+                </div>
+                <span class="badge">3 Failed Tasks</span>
+            </header>
+
+            <section class="cards">
+                <div class="card" id="task1">
+                    <div class="top">
+                        <h3>Email Agent</h3>
+                        <span class="error">Failed</span>
+                    </div>
+                    <p>Connection timeout while sending email.</p>
+                    <p class="time">2 minutes ago</p>
+                    <button onclick="retryTask('task1', this)">Retry</button>
+                </div>
+
+                <div class="card" id="task2">
+                    <div class="top">
+                        <h3>Report Agent</h3>
+                        <span class="error">Failed</span>
+                    </div>
+                    <p>Invalid report input was received.</p>
+                    <p class="time">12 minutes ago</p>
+                    <button onclick="retryTask('task2', this)">Retry</button>
+                </div>
+
+                <div class="card" id="task3">
+                    <div class="top">
+                        <h3>Data Agent</h3>
+                        <span class="error">Failed</span>
+                    </div>
+                    <p>Server was unavailable.</p>
+                    <p class="time">25 minutes ago</p>
+                    <button onclick="retryTask('task3', this)">Retry</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
