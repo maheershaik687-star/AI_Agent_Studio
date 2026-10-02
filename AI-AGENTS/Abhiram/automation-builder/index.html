@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation Workflow Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="layout">
+        <aside>
+            <h2>AgentFlow</h2>
+            <a href="../error-retry/index.html">Error & Retry</a>
+            <a href="../multi-agent/index.html">Multi-Agent</a>
+            <a href="../automation-builder/index.html">Automation Builder</a>
+            <a href="../trigger-action/index.html">Trigger & Action</a>
+        </aside>
+
+        <main>
+            <p class="small">AUTOMATION</p>
+            <h1>Workflow Builder</h1>
+            <p class="intro">Create a simple automation using a trigger, condition and action.</p>
+
+            <div class="builder">
+                <label>Automation Name</label>
+                <input id="name" value="Daily Sales Report">
+
+                <label>Trigger</label>
+                <select id="trigger" onchange="updatePreview()">
+                    <option>Every day at 9:00 AM</option>
+                    <option>New customer registered</option>
+                    <option>New order created</option>
+                </select>
+
+                <label>Condition</label>
+                <select id="condition" onchange="updatePreview()">
+                    <option>Sales are greater than ₹10,000</option>
+                    <option>Customer location is India</option>
+                    <option>No condition</option>
+                </select>
+
+                <label>Action</label>
+                <select id="action" onchange="updatePreview()">
+                    <option>Generate report</option>
+                    <option>Send welcome email</option>
+                    <option>Notify admin</option>
+                </select>
+
+                <button onclick="saveWorkflow()">Save Workflow</button>
+            </div>
+
+            <div class="preview">
+                <h2>Workflow Preview</h2>
+                <div id="preview"></div>
+            </div>
+
+            <p id="saved"></p>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

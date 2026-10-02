@@ -1,0 +1,1 @@
+function filterCards(){let q=document.getElementById("filter").value;document.querySelectorAll(".card").forEach(x=>x.style.display=q==="All"||x.textContent.includes(q)?"flex":"none")}

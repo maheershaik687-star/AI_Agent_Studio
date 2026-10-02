@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigger & Action</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="layout">
+        <aside>
+            <h2>AgentFlow</h2>
+            <a href="../error-retry/index.html">Error & Retry</a>
+            <a href="../multi-agent/index.html">Multi-Agent</a>
+            <a href="../automation-builder/index.html">Automation Builder</a>
+            <a href="../trigger-action/index.html">Trigger & Action</a>
+        </aside>
+
+        <main>
+            <p class="small">AUTOMATION</p>
+            <h1>Trigger & Action</h1>
+            <p class="intro">Manage your existing automation rules.</p>
+
+            <input id="search" onkeyup="searchRules()" placeholder="Search automations...">
+
+            <section id="rules">
+                <div class="rule">
+                    <div>
+                        <h3>New Order</h3>
+                        <p><b>Trigger:</b> New order created</p>
+                        <p><b>Action:</b> Send confirmation email</p>
+                    </div>
+                    <button onclick="toggleRule(this)">Active</button>
+                </div>
+
+                <div class="rule">
+                    <div>
+                        <h3>Failed Payment</h3>
+                        <p><b>Trigger:</b> Payment failed</p>
+                        <p><b>Action:</b> Notify admin</p>
+                    </div>
+                    <button onclick="toggleRule(this)">Active</button>
+                </div>
+
+                <div class="rule">
+                    <div>
+                        <h3>New Customer</h3>
+                        <p><b>Trigger:</b> Customer registered</p>
+                        <p><b>Action:</b> Send welcome email</p>
+                    </div>
+                    <button onclick="toggleRule(this)">Active</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

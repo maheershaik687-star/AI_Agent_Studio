@@ -1,0 +1,1 @@
+function handoff(){let s=document.querySelectorAll(".status");s[1].textContent="Done";s[1].className="status done";s[2].textContent="Running";document.getElementById("msg").textContent="Task handed off to Quality Agent."}
