@@ -1,452 +1,1758 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AI Agents UI Collection</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="AI Agent Studio — Premium AI Agent UI Template Collection"
+    >
+
+    <meta
+        name="theme-color"
+        content="#050816"
+    >
+
+    <title>AI Agent Studio | AI Command Center</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="navbar">
-
-    <div class="logo">
-        <span>✦</span>
-        AI Agents
-    </div>
-
-    <nav>
-        <a href="#templates">Templates</a>
-        <a href="#categories">Categories</a>
-        <a href="#about">About</a>
-    </nav>
-
-    <button class="theme-btn" onclick="toggleTheme()">
-        🌙
-    </button>
-
-</header>
-
-
-<main>
-
     <!-- =====================================================
-         HERO
+         GLOBAL EFFECTS
     ====================================================== -->
 
-    <section class="hero" id="home">
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-        <!-- Mouse-following glow -->
-        <div class="mouse-glow"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
 
-        <!-- Background particles -->
-        <div class="hero-particles">
+    <div class="background" aria-hidden="true">
+        <div class="grid"></div>
 
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="stars"></div>
 
-        </div>
-
-
-        <!-- =================================================
-             NEON ORBITAL SYSTEM
-        ================================================== -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
 
         <div class="orbital-system">
+            <div class="orbital-ring ring-1"></div>
+            <div class="orbital-ring ring-2"></div>
+            <div class="orbital-ring ring-3"></div>
 
-            <!-- Rotating orbital rings -->
+            <span class="orbit-dot dot-1"></span>
+            <span class="orbit-dot dot-2"></span>
+            <span class="orbit-dot dot-3"></span>
+        </div>
 
-            <div class="orbit-wrapper orbit-wrapper-one">
-                <div class="orbit orbit-one"></div>
+        <div class="scanline"></div>
+    </div>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar" id="navbar">
+
+        <div class="nav-container">
+
+            <a href="#" class="brand">
+
+                <div class="brand-icon">
+                    <span>AI</span>
+                </div>
+
+                <div class="brand-text">
+                    <strong>AI Agent</strong>
+                    <span>Studio</span>
+                </div>
+
+            </a>
+
+
+            <nav class="nav-links" id="navLinks">
+
+                <a href="#templates">Templates</a>
+
+                <a href="#specialized">Specialized</a>
+
+                <a href="#collection">Collection</a>
+
+                <a href="#ai-agents">AI-AGENTS</a>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <button
+                    class="command-button"
+                    id="openCommand"
+                    type="button"
+                    aria-label="Open command palette"
+                >
+                    <span>⌘</span>
+                    <span>K</span>
+                </button>
+
+                <button
+                    class="mobile-menu"
+                    id="mobileMenu"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
             </div>
-
-            <div class="orbit-wrapper orbit-wrapper-two">
-                <div class="orbit orbit-two"></div>
-            </div>
-
-            <div class="orbit-wrapper orbit-wrapper-three">
-                <div class="orbit orbit-three"></div>
-            </div>
-
-
-            <!-- Neon planets -->
-
-            <div class="planet planet-one"></div>
-
-            <div class="planet planet-two"></div>
-
-            <div class="planet planet-three"></div>
-
-
-            <!-- Small glowing particles -->
-
-            <div class="tiny-planet tiny-one"></div>
-
-            <div class="tiny-planet tiny-two"></div>
-
-            <div class="tiny-planet tiny-three"></div>
-
-            <div class="tiny-planet tiny-four"></div>
 
         </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main>
 
 
         <!-- =================================================
-             HERO CONTENT
+             HERO
         ================================================== -->
 
-        <div class="hero-content">
+        <section class="hero section" id="home">
 
-            <div class="badge">
-                ✨ Modern AI Interface Collection
+            <div class="hero-content">
+
+                <div class="hero-status reveal">
+
+                    <span class="status-pulse"></span>
+
+                    <span>AI SYSTEM ONLINE</span>
+
+                    <span class="status-divider"></span>
+
+                    <span id="liveClock">00:00:00</span>
+
+                </div>
+
+
+                <div class="hero-badge reveal">
+
+                    <span class="badge-icon">✦</span>
+
+                    <span>THE NEXT GENERATION AI UI COLLECTION</span>
+
+                </div>
+
+
+                <h1 class="hero-title reveal">
+
+                    Build the
+                    <span class="gradient-text">Future</span>
+
+                    <br>
+
+                    With
+                    <span class="gradient-text">AI Agents</span>
+
+                </h1>
+
+
+                <p class="hero-description reveal">
+
+                    A futuristic collection of intelligent dashboards,
+                    workflow systems, monitoring interfaces, agent builders
+                    and human-in-the-loop experiences.
+
+                </p>
+
+
+                <div class="hero-actions reveal">
+
+                    <a
+                        href="#templates"
+                        class="btn btn-primary"
+                        data-ripple
+                    >
+                        <span>Explore Templates</span>
+                        <span class="btn-arrow">→</span>
+                    </a>
+
+                    <a
+                        href="#ai-agents"
+                        class="btn btn-secondary"
+                        data-ripple
+                    >
+                        <span>View AI-AGENTS</span>
+                    </a>
+
+                </div>
+
+
+                <!-- HERO STATS -->
+
+                <div class="hero-stats reveal">
+
+                    <div class="stat-card">
+
+                        <strong
+                            class="counter"
+                            data-count="10"
+                        >
+                            0
+                        </strong>
+
+                        <span>Categories</span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <strong
+                            class="counter"
+                            data-count="20"
+                        >
+                            0
+                        </strong>
+
+                        <span>Templates</span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <strong
+                            class="counter"
+                            data-count="4"
+                        >
+                            0
+                        </strong>
+
+                        <span>Specialized UI</span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <strong>∞</strong>
+
+                        <span>Possibilities</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SYSTEM CONSOLE -->
+
+                <div class="hero-console reveal">
+
+                    <div class="console-header">
+
+                        <div class="console-title">
+
+                            <span class="console-dot"></span>
+
+                            AI COMMAND CENTER
+
+                        </div>
+
+                        <span class="console-live">
+                            LIVE
+                        </span>
+
+                    </div>
+
+
+                    <div class="console-grid">
+
+                        <div class="console-item">
+
+                            <div class="console-item-top">
+                                <span>AGENT CORE</span>
+                                <strong>98%</strong>
+                            </div>
+
+                            <div class="console-bar">
+                                <span style="width: 98%"></span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="console-item">
+
+                            <div class="console-item-top">
+                                <span>WORKFLOW ENGINE</span>
+                                <strong>94%</strong>
+                            </div>
+
+                            <div class="console-bar">
+                                <span style="width: 94%"></span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="console-item">
+
+                            <div class="console-item-top">
+                                <span>MONITORING</span>
+                                <strong>99%</strong>
+                            </div>
+
+                            <div class="console-bar">
+                                <span style="width: 99%"></span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="console-item">
+
+                            <div class="console-item-top">
+                                <span>UI SYSTEM</span>
+                                <strong>100%</strong>
+                            </div>
+
+                            <div class="console-bar">
+                                <span style="width: 100%"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             TEMPLATE EXPLORER
+        ================================================== -->
+
+        <section
+            class="explorer section"
+            id="templates"
+        >
+
+            <div class="section-heading reveal">
+
+                <div>
+
+                    <span class="section-label">
+                        01 / TEMPLATE EXPLORER
+                    </span>
+
+                    <h2>
+                        AI Interface
+                        <span class="gradient-text">Systems</span>
+                    </h2>
+
+                    <p>
+                        Explore production-inspired interfaces
+                        designed for modern AI applications.
+                    </p>
+
+                </div>
+
+                <div class="section-number">
+                    01
+                </div>
+
             </div>
 
 
-            <h1>
-                AI Agent
-                <span>UI Templates</span>
-            </h1>
+            <!-- SEARCH -->
+
+            <div class="explorer-controls reveal">
+
+                <div class="search-wrapper">
+
+                    <span class="search-icon">⌕</span>
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search AI templates..."
+                        autocomplete="off"
+                    >
+
+                    <kbd>Ctrl K</kbd>
+
+                </div>
+
+
+                <select
+                    id="sortSelect"
+                    class="sort-select"
+                    aria-label="Sort templates"
+                >
+
+                    <option value="featured">
+                        Featured
+                    </option>
+
+                    <option value="az">
+                        A → Z
+                    </option>
+
+                    <option value="za">
+                        Z → A
+                    </option>
+
+                    <option value="category">
+                        Category
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- FILTERS -->
+
+            <div class="filter-row reveal">
+
+                <div class="filter-buttons">
+
+                    <button
+                        class="filter-btn active"
+                        data-filter="all"
+                        type="button"
+                    >
+                        All
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="dashboard"
+                        type="button"
+                    >
+                        Dashboard
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="workflow"
+                        type="button"
+                    >
+                        Workflow
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="monitoring"
+                        type="button"
+                    >
+                        Monitoring
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="builder"
+                        type="button"
+                    >
+                        Builder
+                    </button>
+
+                </div>
+
+
+                <div class="result-counter">
+
+                    <span id="resultCount">10</span>
+
+                    <span>systems detected</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- TEMPLATE GRID -->
+
+            <div
+                class="template-grid"
+                id="templateGrid"
+            >
+
+
+                <!-- TEMPLATE 01 -->
+
+                <article
+                    class="template-card tilt-card reveal"
+                    data-category="dashboard"
+                    data-name="AI Agent Dashboard"
+                    data-order="1"
+                >
+
+                    <div class="card-glow"></div>
+
+                    <div class="card-top">
+
+                        <span class="card-number">
+                            01
+                        </span>
+
+                        <span class="card-status">
+                            READY
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-icon">
+                        ◈
+                    </div>
+
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            DASHBOARD
+                        </span>
+
+                        <h3>
+                            AI Agent Dashboard
+                        </h3>
+
+                        <p>
+                            Complete command center for
+                            monitoring AI agents, metrics,
+                            tasks and system activity.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card-meta">
+
+                        <span>Analytics</span>
+                        <span>Live Data</span>
+                        <span>Control</span>
+
+                    </div>
+
+
+                    <div class="template-actions">
+
+                        <a
+                            href="01-ai-agent-dashboard/template-01/index.html"
+                            class="card-link"
+                            data-ripple
+                        >
+                            Open Template 01
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="01-ai-agent-dashboard/template-02/index.html"
+                            class="card-link secondary-link"
+                            data-ripple
+                        >
+                            Template 02
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TEMPLATE 02 -->
+
+                <article
+                    class="template-card tilt-card reveal"
+                    data-category="dashboard"
+                    data-name="AI Agent List"
+                    data-order="2"
+                >
+
+                    <div class="card-glow"></div>
+
+                    <div class="card-top">
+
+                        <span class="card-number">02</span>
+
+                        <span class="card-status">
+                            READY
+                        </span>
+
+                    </div>
+
+                    <div class="card-icon">
+                        ◎
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            DASHBOARD
+                        </span>
+
+                        <h3>
+                            AI Agent List
+                        </h3>
+
+                        <p>
+                            Organized agent directory with
+                            status indicators, search,
+                            categories and quick actions.
+                        </p>
+
+                    </div>
+
+                    <div class="card-meta">
+                        <span>Agents</span>
+                        <span>Search</span>
+                        <span>Status</span>
+                    </div>
+
+                    <div class="template-actions">
+
+                        <a
+                            href="02-ai-agent-list/template-01/index.html"
+                            class="card-link"
+                            data-ripple
+                        >
+                            Open Template 01
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="02-ai-agent-list/template-02/index.html"
+                            class="card-link secondary-link"
+                            data-ripple
+                        >
+                            Template 02
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TEMPLATE 03 -->
+
+                <article
+                    class="template-card tilt-card reveal"
+                    data-category="dashboard"
+                    data-name="AI Agent Profile"
+                    data-order="3"
+                >
+
+                    <div class="card-glow"></div>
+
+                    <div class="card-top">
+                        <span class="card-number">03</span>
+                        <span class="card-status">READY</span>
+                    </div>
+
+                    <div class="card-icon">
+                        ◉
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            DASHBOARD
+                        </span>
+
+                        <h3>
+                            AI Agent Profile
+                        </h3>
+
+                        <p>
+                            Detailed agent profile interface
+                            showing capabilities, configuration,
+                            activity and performance.
+                        </p>
+
+                    </div>
+
+                    <div class="card-meta">
+                        <span>Profile</span>
+                        <span>Metrics</span>
+                        <span>Config</span>
+                    </div>
+
+                    <div class="template-actions">
+
+                        <a
+                            href="03-ai-agent-profile/template-01/index.html"
+                            class="card-link"
+                            data-ripple
+                        >
+                            Open Template 01
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="03-ai-agent-profile/template-02/index.html"
+                            class="card-link secondary-link"
+                            data-ripple
+                        >
+                            Template 02
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TEMPLATE 04 -->
+
+                <article
+                    class="template-card tilt-card reveal"
+                    data-category="monitoring"
+                    data-name="Agent Status Monitoring"
+                    data-order="4"
+                >
+
+                    <div class="card-glow"></div>
+
+                    <div class="card-top">
+                        <span class="card-number">04</span>
+                        <span class="card-status">LIVE</span>
+                    </div>
+
+                    <div class="card-icon">
+                        ◌
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            MONITORING
+                        </span>
+
+                        <h3>
+                            Agent Status Monitoring
+                        </h3>
+
+                        <p>
+                            Real-time style monitoring interface
+                            for health, uptime and operational
+                            agent status.
+                        </p>
+
+                    </div>
+
+                    <div class="card-meta">
+                        <span>Health</span>
+                        <span>Uptime</span>
+                        <span>Alerts</span>
+                    </div>
+
+                    <div class="template-actions">
+
+                        <a
+                            href="04-agent-status-monitoring/template-01/index.html"
+                            class="card-link"
+                            data-ripple
+                        >
+                            Open Template 01
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="04-agent-status-monitoring/template-02/index.html"
+                            class="card-link secondary-link"
+                            data-ripple
+                        >
+                            Template 02
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TEMPLATE 05 -->
+
+                <article
+                    class="template-card tilt-card reveal"
+                    data-category="workflow"
+                    data-name="Agent Task Queue"
+                    data-order="5"
+                >
+
+                    <div class="card-glow"></div>
+
+                    <div class="card-top">
+                        <span class="card-number">05</span>
+                        <span class="card-status">READY</span>
+                    </div>
+
+                    <div class="card-icon">
+                        ≋
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            WORKFLOW
+                        </span>
+
+                        <h3>
+                            Agent Task Queue
+                        </h3>
+
+                        <p>
+                            Visual task queue for tracking
+                            pending, active, completed and
+                            failed agent jobs.
+                        </p>
+
+                    </div>
+
+                    <div class="card-meta">
+                        <span>Tasks</span>
+                        <span>Queue</span>
+                        <span>Priority</span>
+                    </div>
+
+                    <div class="template-actions">
+
+                        <a
+                            href="05-agent-task-queue/template-01/index.html"
+                            class="card-link"
+                            data-ripple
+                        >
+                            Open Template 01
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="05-agent-task-queue/template-02/index.html"
+                            class="card-link secondary-link"
+                            data-ripple
+                        >
+                            Template 02
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TEMPLATE 06 -->
+
+                <article
+                    class="template-card tilt-card reveal"
+                    data-category="monitoring"
+                    data-name="Agent Activity Log"
+                    data-order="6"
+                >
+
+                    <div class="card-glow"></div>
+
+                    <div class="card-top">
+                        <span class="card-number">06</span>
+                        <span class="card-status">LIVE</span>
+                    </div>
+
+                    <div class="card-icon">
+                        ≡
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            MONITORING
+                        </span>
+
+                        <h3>
+                            Agent Activity Log
+                        </h3>
+
+                        <p>
+                            Timeline-style activity stream
+                            for understanding agent events,
+                            actions and system responses.
+                        </p>
+
+                    </div>
+
+                    <div class="card-meta">
+                        <span>Events</span>
+                        <span>Timeline</span>
+                        <span>Logs</span>
+                    </div>
+
+                    <div class="template-actions">
+
+                        <a
+                            href="06-agent-activity-log/template-01/index.html"
+                            class="card-link"
+                            data-ripple
+                        >
+                            Open Template 01
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="06-agent-activity-log/template-02/index.html"
+                            class="card-link secondary-link"
+                            data-ripple
+                        >
+                            Template 02
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TEMPLATE 07 -->
+
+                <article
+                    class="template-card tilt-card reveal"
+                    data-category="monitoring"
+                    data-name="Agent Execution History"
+                    data-order="7"
+                >
+
+                    <div class="card-glow"></div>
+
+                    <div class="card-top">
+                        <span class="card-number">07</span>
+                        <span class="card-status">READY</span>
+                    </div>
+
+                    <div class="card-icon">
+                        ◫
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            MONITORING
+                        </span>
+
+                        <h3>
+                            Agent Execution History
+                        </h3>
+
+                        <p>
+                            Historical execution interface
+                            for reviewing completed runs,
+                            results and performance.
+                        </p>
+
+                    </div>
+
+                    <div class="card-meta">
+                        <span>History</span>
+                        <span>Runs</span>
+                        <span>Results</span>
+                    </div>
+
+                    <div class="template-actions">
+
+                        <a
+                            href="07-agent-execution-history/template-01/index.html"
+                            class="card-link"
+                            data-ripple
+                        >
+                            Open Template 01
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="07-agent-execution-history/template-02/index.html"
+                            class="card-link secondary-link"
+                            data-ripple
+                        >
+                            Template 02
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TEMPLATE 08 -->
+
+                <article
+                    class="template-card tilt-card reveal"
+                    data-category="workflow"
+                    data-name="Agent Execution Timeline"
+                    data-order="8"
+                >
+
+                    <div class="card-glow"></div>
+
+                    <div class="card-top">
+                        <span class="card-number">08</span>
+                        <span class="card-status">READY</span>
+                    </div>
+
+                    <div class="card-icon">
+                        ⟿
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            WORKFLOW
+                        </span>
+
+                        <h3>
+                            Agent Execution Timeline
+                        </h3>
+
+                        <p>
+                            Step-by-step visual execution
+                            timeline for understanding
+                            complex agent workflows.
+                        </p>
+
+                    </div>
+
+                    <div class="card-meta">
+                        <span>Steps</span>
+                        <span>Flow</span>
+                        <span>Execution</span>
+                    </div>
+
+                    <div class="template-actions">
+
+                        <a
+                            href="08-agent-execution-timeline/template-01/index.html"
+                            class="card-link"
+                            data-ripple
+                        >
+                            Open Template 01
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="08-agent-execution-timeline/template-02/index.html"
+                            class="card-link secondary-link"
+                            data-ripple
+                        >
+                            Template 02
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TEMPLATE 09 -->
+
+                <article
+                    class="template-card tilt-card reveal"
+                    data-category="workflow"
+                    data-name="Agent Workflow"
+                    data-order="9"
+                >
+
+                    <div class="card-glow"></div>
+
+                    <div class="card-top">
+                        <span class="card-number">09</span>
+                        <span class="card-status">READY</span>
+                    </div>
+
+                    <div class="card-icon">
+                        ⬡
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            WORKFLOW
+                        </span>
+
+                        <h3>
+                            Agent Workflow
+                        </h3>
+
+                        <p>
+                            Visual workflow system for
+                            connecting agent tasks, actions,
+                            decisions and automation.
+                        </p>
+
+                    </div>
+
+                    <div class="card-meta">
+                        <span>Nodes</span>
+                        <span>Automation</span>
+                        <span>Logic</span>
+                    </div>
+
+                    <div class="template-actions">
+
+                        <a
+                            href="09-agent-workflow/template-01/index.html"
+                            class="card-link"
+                            data-ripple
+                        >
+                            Open Template 01
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="09-agent-workflow/template-02/index.html"
+                            class="card-link secondary-link"
+                            data-ripple
+                        >
+                            Template 02
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TEMPLATE 10 -->
+
+                <article
+                    class="template-card tilt-card reveal"
+                    data-category="builder"
+                    data-name="Agent Builder"
+                    data-order="10"
+                >
+
+                    <div class="card-glow"></div>
+
+                    <div class="card-top">
+                        <span class="card-number">10</span>
+                        <span class="card-status">BUILD</span>
+                    </div>
+
+                    <div class="card-icon">
+                        ✦
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            BUILDER
+                        </span>
+
+                        <h3>
+                            Agent Builder
+                        </h3>
+
+                        <p>
+                            Futuristic interface for creating,
+                            configuring and deploying intelligent
+                            AI agents.
+                        </p>
+
+                    </div>
+
+                    <div class="card-meta">
+                        <span>Builder</span>
+                        <span>Config</span>
+                        <span>Deploy</span>
+                    </div>
+
+                    <div class="template-actions">
+
+                        <a
+                            href="10-agent-builder/template-01/index.html"
+                            class="card-link"
+                            data-ripple
+                        >
+                            Open Template 01
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="10-agent-builder/template-02/index.html"
+                            class="card-link secondary-link"
+                            data-ripple
+                        >
+                            Template 02
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <div
+                class="no-results"
+                id="noResults"
+                hidden
+            >
+
+                <div class="no-results-icon">
+                    ⌕
+                </div>
+
+                <h3>
+                    No AI systems found
+                </h3>
+
+                <p>
+                    Try another search term or category.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SPECIALIZED
+        ================================================== -->
+
+        <section
+            class="specialized section"
+            id="specialized"
+        >
+
+            <div class="section-heading reveal">
+
+                <div>
+
+                    <span class="section-label">
+                        02 / SPECIALIZED SYSTEMS
+                    </span>
+
+                    <h2>
+                        Advanced
+                        <span class="gradient-text">
+                            AI Controls
+                        </span>
+                    </h2>
+
+                    <p>
+                        Interfaces for more advanced AI
+                        management scenarios.
+                    </p>
+
+                </div>
+
+                <div class="section-number">
+                    02
+                </div>
+
+            </div>
+
+
+            <div class="specialized-grid">
+
+
+                <article class="special-card reveal">
+
+                    <div class="special-icon">
+                        ✓
+                    </div>
+
+                    <span>01</span>
+
+                    <h3>
+                        Agent Approval
+                    </h3>
+
+                    <p>
+                        Human approval interfaces for
+                        sensitive agent actions.
+                    </p>
+
+                    <a href="agent-approval-interface/index.html">
+                        Explore System →
+                    </a>
+
+                </article>
+
+
+                <article class="special-card reveal">
+
+                    <div class="special-icon">
+                        ⚙
+                    </div>
+
+                    <span>02</span>
+
+                    <h3>
+                        Agent Configuration
+                    </h3>
+
+                    <p>
+                        Configure behavior, models,
+                        tools and agent parameters.
+                    </p>
+
+                    <a href="agent-configuration/index.html">
+                        Explore System →
+                    </a>
+
+                </article>
+
+
+                <article class="special-card reveal">
+
+                    <div class="special-icon">
+                        ◇
+                    </div>
+
+                    <span>03</span>
+
+                    <h3>
+                        Agent Permissions
+                    </h3>
+
+                    <p>
+                        Control tools, permissions,
+                        roles and access levels.
+                    </p>
+
+                    <a href="agent-permissions/index.html">
+                        Explore System →
+                    </a>
+
+                </article>
+
+
+                <article class="special-card reveal">
+
+                    <div class="special-icon">
+                        ◎
+                    </div>
+
+                    <span>04</span>
+
+                    <h3>
+                        Human-in-the-Loop
+                    </h3>
+
+                    <p>
+                        Combine autonomous agents with
+                        human decision making.
+                    </p>
+
+                    <a href="human-in-the-loop-workflow/index.html">
+                        Explore System →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             AI AGENTS COLLECTION
+        ================================================== -->
+
+        <section
+            class="collection section"
+            id="ai-agents"
+        >
+
+            <div class="collection-wrapper reveal">
+
+                <div class="collection-info">
+
+                    <span class="section-label">
+                        03 / AI-AGENTS
+                    </span>
+
+                    <h2>
+                        Enter the
+                        <span class="gradient-text">
+                            AI Universe
+                        </span>
+                    </h2>
+
+                    <p>
+                        A dedicated collection space for
+                        advanced AI agent experiences,
+                        experiments and interfaces.
+                    </p>
+
+                    <a
+                        href="AI-AGENTS/index.html"
+                        class="btn btn-primary"
+                        data-ripple
+                    >
+                        Open AI-AGENTS
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+
+                <div class="terminal">
+
+                    <div class="terminal-header">
+
+                        <div class="terminal-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <span>
+                            ai-agent-core
+                        </span>
+
+                        <span class="terminal-status">
+                            ● ONLINE
+                        </span>
+
+                    </div>
+
+
+                    <div class="terminal-body">
+
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">
+                                $
+                            </span>
+
+                            <span>
+                                initialize ai-agent-studio
+                            </span>
+                        </div>
+
+
+                        <div class="terminal-line success">
+                            ✓ AI core initialized
+                        </div>
+
+
+                        <div class="terminal-line success">
+                            ✓ Template registry loaded
+                        </div>
+
+
+                        <div class="terminal-line success">
+                            ✓ Workflow engine connected
+                        </div>
+
+
+                        <div class="terminal-line success">
+                            ✓ Monitoring systems online
+                        </div>
+
+
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">
+                                $
+                            </span>
+
+                            <span id="terminalTyping">
+                                awaiting command...
+                            </span>
+
+                            <span class="typing-cursor">
+                                ▋
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+
+                <div class="brand-icon small">
+                    <span>AI</span>
+                </div>
+
+                <div>
+                    <strong>AI Agent Studio</strong>
+                    <span>Build. Automate. Innovate.</span>
+                </div>
+
+            </div>
+
+
+            <div class="footer-system">
+
+                <span class="status-pulse"></span>
+
+                SYSTEM READY
+
+            </div>
 
 
             <p>
-                A collection of modern, responsive and interactive
-                interfaces designed for AI agent platforms.
+                © <span id="year"></span>
+                AI Agent Studio.
+                Crafted for the future of intelligent interfaces.
             </p>
 
+        </div>
 
-            <div class="hero-buttons">
-
-                <a href="#templates" class="btn primary">
-                    Explore Templates
-                    <span>→</span>
-                </a>
+    </footer>
 
 
-                <a href="https://github.com/"
-                   target="_blank"
-                   class="btn secondary">
+    <!-- =====================================================
+         COMMAND PALETTE
+    ====================================================== -->
 
-                    <span class="github-icon">◉</span>
+    <div
+        class="command-overlay"
+        id="commandOverlay"
+        aria-hidden="true"
+    >
 
-                    GitHub
+        <div
+            class="command-palette"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Command palette"
+        >
 
-                </a>
+            <div class="command-search">
+
+                <span>⌘</span>
+
+                <input
+                    type="text"
+                    id="commandInput"
+                    placeholder="Type a command..."
+                    autocomplete="off"
+                >
+
+                <kbd>ESC</kbd>
+
+            </div>
+
+
+            <div class="command-section-title">
+                QUICK ACTIONS
+            </div>
+
+
+            <div
+                class="command-list"
+                id="commandList"
+            >
+
+                <button
+                    class="command-item"
+                    data-action="search"
+                    type="button"
+                >
+                    <span class="command-item-icon">⌕</span>
+
+                    <span>
+                        <strong>Search templates</strong>
+                        <small>Focus template search</small>
+                    </span>
+
+                    <kbd>/</kbd>
+                </button>
+
+
+                <button
+                    class="command-item"
+                    data-action="all"
+                    type="button"
+                >
+                    <span class="command-item-icon">◈</span>
+
+                    <span>
+                        <strong>Show all templates</strong>
+                        <small>Reset filters</small>
+                    </span>
+                </button>
+
+
+                <button
+                    class="command-item"
+                    data-action="dashboard"
+                    type="button"
+                >
+                    <span class="command-item-icon">▦</span>
+
+                    <span>
+                        <strong>Dashboard systems</strong>
+                        <small>Show dashboard interfaces</small>
+                    </span>
+                </button>
+
+
+                <button
+                    class="command-item"
+                    data-action="workflow"
+                    type="button"
+                >
+                    <span class="command-item-icon">⟿</span>
+
+                    <span>
+                        <strong>Workflow systems</strong>
+                        <small>Show workflow interfaces</small>
+                    </span>
+                </button>
+
+
+                <button
+                    class="command-item"
+                    data-action="monitoring"
+                    type="button"
+                >
+                    <span class="command-item-icon">◌</span>
+
+                    <span>
+                        <strong>Monitoring systems</strong>
+                        <small>Show monitoring interfaces</small>
+                    </span>
+                </button>
+
+
+                <button
+                    class="command-item"
+                    data-action="builder"
+                    type="button"
+                >
+                    <span class="command-item-icon">✦</span>
+
+                    <span>
+                        <strong>Builder systems</strong>
+                        <small>Show agent builder interfaces</small>
+                    </span>
+                </button>
+
+
+                <button
+                    class="command-item"
+                    data-action="specialized"
+                    type="button"
+                >
+                    <span class="command-item-icon">◇</span>
+
+                    <span>
+                        <strong>Specialized systems</strong>
+                        <small>Jump to advanced controls</small>
+                    </span>
+                </button>
+
+
+                <button
+                    class="command-item"
+                    data-action="collection"
+                    type="button"
+                >
+                    <span class="command-item-icon">AI</span>
+
+                    <span>
+                        <strong>AI-AGENTS collection</strong>
+                        <small>Open the AI universe</small>
+                    </span>
+                </button>
+
+            </div>
+
+
+            <div class="command-footer">
+
+                <span>
+                    ↑↓ Navigate
+                </span>
+
+                <span>
+                    Enter Select
+                </span>
+
+                <span>
+                    Esc Close
+                </span>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
 
 
     <!-- =====================================================
-         CATEGORIES
+         TOAST
     ====================================================== -->
 
-    <section id="categories" class="section">
-
-        <div class="section-heading">
-
-            <p class="small-title">
-                COLLECTION
-            </p>
-
-            <h2>
-                Explore Categories
-            </h2>
-
-            <p>
-                Choose a category and explore different AI agent UI designs.
-            </p>
-
-        </div>
-
-
-        <div class="category-grid">
-
-            <a href="01-ai-agent-dashboard/template-01/index.html"
-               class="category-card">
-
-                <div class="icon">
-                    📊
-                </div>
-
-                <div>
-
-                    <h3>
-                        AI Agent Dashboard
-                    </h3>
-
-                    <p>
-                        Analytics dashboards for monitoring AI agents.
-                    </p>
-
-                    <span>
-                        Explore →
-                    </span>
-
-                </div>
-
-            </a>
-
-
-            <a href="02-ai-agent-list/template-01/index.html"
-               class="category-card">
-
-                <div class="icon">
-                    🤖
-                </div>
-
-                <div>
-
-                    <h3>
-                        AI Agent List
-                    </h3>
-
-                    <p>
-                        Browse and manage multiple AI agents.
-                    </p>
-
-                    <span>
-                        Explore →
-                    </span>
-
-                </div>
-
-            </a>
-
-
-            <a href="03-ai-agent-profile/template-01/index.html"
-               class="category-card">
-
-                <div class="icon">
-                    👤
-                </div>
-
-                <div>
-
-                    <h3>
-                        AI Agent Profile
-                    </h3>
-
-                    <p>
-                        Detailed profiles and information about agents.
-                    </p>
-
-                    <span>
-                        Explore →
-                    </span>
-
-                </div>
-
-            </a>
-
-
-            <a href="04-agent-status-monitoring/template-01/index.html"
-               class="category-card">
-
-                <div class="icon">
-                    📡
-                </div>
-
-                <div>
-
-                    <h3>
-                        Status Monitoring
-                    </h3>
-
-                    <p>
-                        Monitor health, uptime and agent status.
-                    </p>
-
-                    <span>
-                        Explore →
-                    </span>
-
-                </div>
-
-            </a>
-
-
-            <a href="05-agent-task-queue/template-01/index.html"
-               class="category-card">
-
-                <div class="icon">
-                    📋
-                </div>
-
-                <div>
-
-                    <h3>
-                        Agent Task Queue
-                    </h3>
-
-                    <p>
-                        Manage tasks assigned to AI agents.
-                    </p>
-
-                    <span>
-                        Explore →
-                    </span>
-
-                </div>
-
-            </a>
-
-
-            <a href="06-agent-activity-log/template-01/index.html"
-               class="category-card">
-
-                <div class="icon">
-                    ⚡
-                </div>
-
-                <div>
-
-                    <h3>
-                        Activity Log
-                    </h3>
-
-                    <p>
-                        Track real-time AI agent activity.
-                    </p>
-
-                    <span>
-                        Explore →
-                    </span>
-
-                </div>
-
-            </a>
-
-        </div>
-
-    </section>
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite"
+    >
+        System ready.
+    </div>
 
 
     <!-- =====================================================
-         TEMPLATES
+         BACK TO TOP
     ====================================================== -->
 
-    <section id="templates"
-             class="section templates-section">
-
-        <div class="section-heading">
-
-            <p class="small-title">
-                FEATURED
-            </p>
-
-            <h2>
-                12 Modern Templates
-            </h2>
-
-            <p>
-                Two unique templates are available for each category.
-            </p>
-
-        </div>
+    <button
+        class="back-to-top"
+        id="backToTop"
+        type="button"
+        aria-label="Back to top"
+    >
+        ↑
+    </button>
 
 
-        <div class="template-list">
-
-            <a href="01-ai-agent-dashboard/template-01/index.html">
-                Dashboard — Template 01
-                <span>→</span>
-            </a>
-
-            <a href="01-ai-agent-dashboard/template-02/index.html">
-                Dashboard — Template 02
-                <span>→</span>
-            </a>
-
-            <a href="02-ai-agent-list/template-01/index.html">
-                Agent List — Template 01
-                <span>→</span>
-            </a>
-
-            <a href="02-ai-agent-list/template-02/index.html">
-                Agent List — Template 02
-                <span>→</span>
-            </a>
-
-            <a href="03-ai-agent-profile/template-01/index.html">
-                Agent Profile — Template 01
-                <span>→</span>
-            </a>
-
-            <a href="03-ai-agent-profile/template-02/index.html">
-                Agent Profile — Template 02
-                <span>→</span>
-            </a>
-
-            <a href="04-agent-status-monitoring/template-01/index.html">
-                Status Monitoring — Template 01
-                <span>→</span>
-            </a>
-
-            <a href="04-agent-status-monitoring/template-02/index.html">
-                Status Monitoring — Template 02
-                <span>→</span>
-            </a>
-
-            <a href="05-agent-task-queue/template-01/index.html">
-                Task Queue — Template 01
-                <span>→</span>
-            </a>
-
-            <a href="05-agent-task-queue/template-02/index.html">
-                Task Queue — Template 02
-                <span>→</span>
-            </a>
-
-            <a href="06-agent-activity-log/template-01/index.html">
-                Activity Log — Template 01
-                <span>→</span>
-            </a>
-
-            <a href="06-agent-activity-log/template-02/index.html">
-                Activity Log — Template 02
-                <span>→</span>
-            </a>
-
-        </div>
-
-    </section>
-
-</main>
-
-
-<footer id="about">
-
-    <h3>
-        AI Agents UI Collection
-    </h3>
-
-    <p>
-        Built as a collaborative GitHub UI template project.
-    </p>
-
-    <p>
-        © 2026 AI Agents
-    </p>
-
-</footer>
-
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
