@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AgentHub | Execution Journey</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo">✦</div>
+            <span>AgentHub</span>
+        </div>
+
+        <div class="workspace">
+            <div class="workspace-logo">A</div>
+            <div>
+                <strong>Acme Workspace</strong>
+                <small>Enterprise Plan</small>
+            </div>
+            <span class="arrow">⌄</span>
+        </div>
+
+        <div class="nav-heading">MAIN MENU</div>
+
+        <nav>
+            <a href="#"><span>⌂</span> Dashboard</a>
+            <a href="#"><span>✧</span> AI Agents</a>
+            <a href="#"><span>▤</span> Execution History</a>
+            <a class="active" href="#"><span>⌁</span> Execution Timeline</a>
+            <a href="#"><span>⌘</span> Workflows</a>
+            <a href="#"><span>⚙</span> Settings</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="help-card">
+                <div class="help-icon">?</div>
+                <strong>Need assistance?</strong>
+                <p>Explore our documentation to learn about agent execution.</p>
+                <button id="docsBtn">View Documentation →</button>
+            </div>
+
+            <div class="user-profile">
+                <div class="user-avatar">SM</div>
+                <div>
+                    <strong>Shaik Mynuddin</strong>
+                    <small>Workspace Admin</small>
+                </div>
+                <span class="more">•••</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <header class="topbar">
+
+            <div class="breadcrumb">
+                Home <span>/</span> Monitoring <span>/</span>
+                <strong>Execution Journey</strong>
+            </div>
+
+            <div class="top-actions">
+                <button class="top-icon" aria-label="Search">⌕</button>
+                <button class="top-icon" id="notificationBtn" aria-label="Notifications">♧</button>
+                <div class="top-avatar">SM</div>
+            </div>
+
+        </header>
+
+        <section class="content">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+                    <div class="eyebrow">EXECUTION OBSERVABILITY</div>
+                    <h1>Execution Journey</h1>
+                    <p>Visualize the complete execution flow of your AI agent.</p>
+                </div>
+
+                <div class="header-actions">
+
+                    <select id="executionSelect">
+                        <option value="EXE-2024-001">EXE-2024-001</option>
+                        <option value="EXE-2024-002">EXE-2024-002</option>
+                        <option value="EXE-2024-003">EXE-2024-003</option>
+                    </select>
+
+                    <span class="status-badge">
+                        <span class="status-dot"></span>
+                        Success
+                    </span>
+
+                    <button class="replay-btn" id="replayBtn">
+                        ↻ Replay Journey
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- SUMMARY -->
+            <div class="summary-grid">
+
+                <div class="summary-card">
+                    <div class="summary-icon purple">✦</div>
+                    <div>
+                        <small>Agent Name</small>
+                        <strong id="agentName">Research Agent</strong>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-icon blue">◷</div>
+                    <div>
+                        <small>Total Duration</small>
+                        <strong id="duration">18.5 sec</strong>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-icon green">✓</div>
+                    <div>
+                        <small>Completed Steps</small>
+                        <strong id="completedSteps">6 of 6</strong>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-icon orange">⚡</div>
+                    <div>
+                        <small>Tools Executed</small>
+                        <strong>04 Calls</strong>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- JOURNEY SECTION -->
+            <section class="journey-panel">
+
+                <div class="journey-header">
+
+                    <div>
+                        <div class="section-label">WORKFLOW VISUALIZATION</div>
+                        <h2>Agent Execution Flow</h2>
+                        <p>Follow every stage from initialization to completion.</p>
+                    </div>
+
+                    <div class="journey-legend">
+                        <span><i class="legend-completed"></i> Completed</span>
+                        <span><i class="legend-pending"></i> Pending</span>
+                    </div>
+
+                </div>
+
+                <!-- PROGRESS -->
+                <div class="progress-header">
+                    <span>Execution Progress</span>
+                    <strong id="progressText">100%</strong>
+                </div>
+
+                <div class="main-progress">
+                    <div id="progressBar"></div>
+                </div>
+
+                <!-- HORIZONTAL JOURNEY -->
+                <div class="journey-scroll">
+
+                    <div class="journey" id="journey">
+
+                        <div class="journey-track">
+                            <div class="journey-track-fill" id="trackFill"></div>
+                        </div>
+
+                        <!-- STEP 1 -->
+                        <div class="stage completed" data-step="0">
+
+                            <div class="stage-node start-node">
+                                <span>▶</span>
+                                <div class="node-check">✓</div>
+                            </div>
+
+                            <div class="stage-time">10:23:12 AM</div>
+
+                            <h3>Start</h3>
+                            <p>Initialize agent</p>
+
+                            <span class="stage-status">Completed</span>
+
+                        </div>
+
+                        <!-- STEP 2 -->
+                        <div class="stage completed" data-step="1">
+
+                            <div class="stage-node fetch-node">
+                                <span>▤</span>
+                                <div class="node-check">✓</div>
+                            </div>
+
+                            <div class="stage-time">10:23:14 AM</div>
+
+                            <h3>Fetch Data</h3>
+                            <p>Retrieve information</p>
+
+                            <span class="stage-status">Completed</span>
+
+                        </div>
+
+                        <!-- STEP 3 -->
+                        <div class="stage completed" data-step="2">
+
+                            <div class="stage-node process-node">
+                                <span>⚙</span>
+                                <div class="node-check">✓</div>
+                            </div>
+
+                            <div class="stage-time">10:23:18 AM</div>
+
+                            <h3>Process</h3>
+                            <p>Analyze data</p>
+
+                            <span class="stage-status">Completed</span>
+
+                        </div>
+
+                        <!-- STEP 4 -->
+                        <div class="stage completed" data-step="3">
+
+                            <div class="stage-node tool-node">
+                                <span>⌁</span>
+                                <div class="node-check">✓</div>
+                            </div>
+
+                            <div class="stage-time">10:23:22 AM</div>
+
+                            <h3>Tool Execution</h3>
+                            <p>Search the web</p>
+
+                            <span class="stage-status">Completed</span>
+
+                        </div>
+
+                        <!-- STEP 5 -->
+                        <div class="stage completed" data-step="4">
+
+                            <div class="stage-node output-node">
+                                <span>▣</span>
+                                <div class="node-check">✓</div>
+                            </div>
+
+                            <div class="stage-time">10:23:27 AM</div>
+
+                            <h3>Generate Output</h3>
+                            <p>Create response</p>
+
+                            <span class="stage-status">Completed</span>
+
+                        </div>
+
+                        <!-- STEP 6 -->
+                        <div class="stage completed" data-step="5">
+
+                            <div class="stage-node complete-node">
+                                <span>✓</span>
+                                <div class="node-check">✓</div>
+                            </div>
+
+                            <div class="stage-time">10:23:30 AM</div>
+
+                            <h3>Complete</h3>
+                            <p>Execution finished</p>
+
+                            <span class="stage-status">Successful</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="journey-footer">
+                    <span>Execution ID: <strong id="executionId">EXE-2024-001</strong></span>
+                    <span>Last updated: Oct 07, 2024 · 10:23 AM</span>
+                </div>
+
+            </section>
+
+            <!-- STEP DETAILS -->
+            <section class="steps-section">
+
+                <div class="section-title">
+                    <div>
+                        <h2>Execution Breakdown</h2>
+                        <p>Detailed information for each execution stage.</p>
+                    </div>
+
+                    <span class="step-count">06 STAGES</span>
+                </div>
+
+                <div class="step-cards" id="stepCards">
+
+                    <article class="step-card selected" data-card="0">
+
+                        <div class="step-card-top">
+                            <div class="small-icon purple">▶</div>
+                            <span class="completed-label">✓ Done</span>
+                        </div>
+
+                        <div class="step-number">01 / INITIALIZATION</div>
+                        <h3>Initialize Agent</h3>
+                        <p>Set up the execution environment and load agent configuration.</p>
+
+                        <div class="card-metrics">
+                            <span>Duration</span>
+                            <strong>0.4 sec</strong>
+                        </div>
+
+                        <button class="inspect-btn">Inspect Stage →</button>
+
+                    </article>
+
+                    <article class="step-card" data-card="1">
+
+                        <div class="step-card-top">
+                            <div class="small-icon blue">▤</div>
+                            <span class="completed-label">✓ Done</span>
+                        </div>
+
+                        <div class="step-number">02 / DATA COLLECTION</div>
+                        <h3>Fetch Data</h3>
+                        <p>Connect to external APIs and retrieve relevant records.</p>
+
+                        <div class="card-metrics">
+                            <span>Duration</span>
+                            <strong>2.1 sec</strong>
+                        </div>
+
+                        <button class="inspect-btn">Inspect Stage →</button>
+
+                    </article>
+
+                    <article class="step-card" data-card="2">
+
+                        <div class="step-card-top">
+                            <div class="small-icon orange">⚙</div>
+                            <span class="completed-label">✓ Done</span>
+                        </div>
+
+                        <div class="step-number">03 / AI PROCESSING</div>
+                        <h3>Analyze Information</h3>
+                        <p>Process the collected data using the selected language model.</p>
+
+                        <div class="card-metrics">
+                            <span>Duration</span>
+                            <strong>5.3 sec</strong>
+                        </div>
+
+                        <button class="inspect-btn">Inspect Stage →</button>
+
+                    </article>
+
+                    <article class="step-card" data-card="3">
+
+                        <div class="step-card-top">
+                            <div class="small-icon pink">⌁</div>
+                            <span class="completed-label">✓ Done</span>
+                        </div>
+
+                        <div class="step-number">04 / TOOL EXECUTION</div>
+                        <h3>Web Search</h3>
+                        <p>Search multiple sources and collect supporting information.</p>
+
+                        <div class="card-metrics">
+                            <span>Duration</span>
+                            <strong>4.2 sec</strong>
+                        </div>
+
+                        <button class="inspect-btn">Inspect Stage →</button>
+
+                    </article>
+
+                    <article class="step-card" data-card="4">
+
+                        <div class="step-card-top">
+                            <div class="small-icon purple">▣</div>
+                            <span class="completed-label">✓ Done</span>
+                        </div>
+
+                        <div class="step-number">05 / GENERATION</div>
+                        <h3>Generate Output</h3>
+                        <p>Generate and validate the final response.</p>
+
+                        <div class="card-metrics">
+                            <span>Duration</span>
+                            <strong>3.8 sec</strong>
+                        </div>
+
+                        <button class="inspect-btn">Inspect Stage →</button>
+
+                    </article>
+
+                    <article class="step-card final-step" data-card="5">
+
+                        <div class="step-card-top">
+                            <div class="small-icon green">✓</div>
+                            <span class="completed-label">✓ Done</span>
+                        </div>
+
+                        <div class="step-number">06 / COMPLETION</div>
+                        <h3>Task Completed</h3>
+                        <p>All stages finished and the final result is ready.</p>
+
+                        <div class="card-metrics">
+                            <span>Duration</span>
+                            <strong>2.7 sec</strong>
+                        </div>
+
+                        <button class="inspect-btn">Inspect Stage →</button>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- OUTPUT PANEL -->
+            <section class="output-panel">
+
+                <div class="output-header">
+                    <div>
+                        <div class="output-icon">✧</div>
+                        <div>
+                            <h3>Execution Result</h3>
+                            <p>Final output generated by the agent</p>
+                        </div>
+                    </div>
+
+                    <span class="result-badge">✓ Success</span>
+                </div>
+
+                <div class="output-content">
+                    <div class="output-label">GENERATED RESPONSE</div>
+
+                    <p>
+                        Research completed successfully. Relevant information
+                        was collected from web sources, analyzed, and converted
+                        into a structured summary.
+                    </p>
+
+                    <div class="output-stats">
+                        <span>Sources analyzed <strong>10</strong></span>
+                        <span>Tokens generated <strong>1,420</strong></span>
+                        <span>Errors <strong>0</strong></span>
+                    </div>
+                </div>
+
+            </section>
+
+            <footer>
+                <span>© 2026 AgentHub</span>
+                <span>Execution Journey · Monitoring Center</span>
+            </footer>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- STAGE MODAL -->
+<div class="modal-overlay" id="modal">
+
+    <div class="modal">
+
+        <button class="modal-close" id="closeModal">×</button>
+
+        <div class="modal-label">STAGE INSPECTOR</div>
+
+        <h2 id="modalTitle">Initialize Agent</h2>
+
+        <p id="modalDescription">
+            Detailed execution information.
+        </p>
+
+        <div class="modal-info">
+            <div>
+                <span>Stage</span>
+                <strong id="modalStage">01</strong>
+            </div>
+
+            <div>
+                <span>Duration</span>
+                <strong id="modalDuration">0.4 sec</strong>
+            </div>
+
+            <div>
+                <span>Status</span>
+                <strong class="modal-success">✓ Completed</strong>
+            </div>
+        </div>
+
+        <div class="modal-log">
+            <strong>Execution Log</strong>
+            <p id="modalLog">Environment initialized successfully.</p>
+        </div>
+
+        <button class="modal-done" id="doneBtn">Close Inspector</button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
