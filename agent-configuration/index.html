@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Configuration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">✦</div>
+
+            <div>
+                <h2>Agent Studio</h2>
+                <p>AI Workspace</p>
+            </div>
+        </div>
+
+        <nav class="navigation">
+
+            <!-- Configuration -->
+            <a href="index.html" class="nav-item active">
+                <span class="nav-icon">⚙</span>
+                <span>Configuration</span>
+            </a>
+
+            <!-- Permissions -->
+            <a href="../agent-permissions/index.html" class="nav-item">
+                <span class="nav-icon">♟</span>
+                <span>Permissions</span>
+            </a>
+
+            <!-- Approvals -->
+            <a href="../agent-approval-interface/index.html" class="nav-item">
+                <span class="nav-icon">✓</span>
+                <span>Approvals</span>
+            </a>
+
+            <!-- Workflows -->
+            <a href="../human-in-the-loop-workflow/index.html" class="nav-item">
+                <span class="nav-icon">↔</span>
+                <span>Workflows</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <div class="breadcrumb">
+            Agents / Configuration
+        </div>
+
+
+        <!-- Page Header -->
+        <div class="page-header">
+
+            <div>
+                <h1>Agent Configuration</h1>
+                <p>Configure how your AI agent behaves and responds.</p>
+            </div>
+
+            <div class="header-actions">
+
+                <button id="resetBtn" class="btn secondary">
+                    Reset
+                </button>
+
+                <button id="saveBtn" class="btn primary">
+                    Save Configuration
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- General Settings -->
+        <section class="card">
+
+            <div class="section-header">
+                <div>
+                    <h2>General Settings</h2>
+                    <p>Basic information about your AI agent.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <label for="agentName">
+                    Agent Name
+                </label>
+
+                <input
+                    type="text"
+                    id="agentName"
+                    value="Research Assistant"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="agentDescription">
+                    Description
+                </label>
+
+                <textarea id="agentDescription" rows="4">AI Research & Analysis Agent</textarea>
+
+            </div>
+
+        </section>
+
+
+        <!-- Model Settings -->
+        <section class="card">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Model Settings</h2>
+                    <p>Configure the model's response behavior.</p>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="model">
+                        Model
+                    </label>
+
+                    <select id="model">
+
+                        <option value="gpt">GPT-5.6</option>
+                        <option value="standard">Standard Model</option>
+                        <option value="fast">Fast Model</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="responseStyle">
+                        Response Style
+                    </label>
+
+                    <select id="responseStyle">
+
+                        <option value="balanced">Balanced</option>
+                        <option value="concise">Concise</option>
+                        <option value="detailed">Detailed</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- Temperature -->
+            <div class="form-group">
+
+                <div class="label-row">
+
+                    <label for="temperature">
+                        Temperature
+                    </label>
+
+                    <span id="temperatureValue">
+                        0.7
+                    </span>
+
+                </div>
+
+                <input
+                    type="range"
+                    id="temperature"
+                    min="0"
+                    max="1"
+                    step="0.1"
+                    value="0.7"
+                >
+
+                <div class="range-labels">
+                    <span>Precise</span>
+                    <span>Creative</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- System Instructions -->
+        <section class="card">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>System Instructions</h2>
+                    <p>Define how the agent should behave.</p>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="instructions">
+                    Instructions
+                </label>
+
+                <textarea id="instructions" rows="6">You are a helpful AI research assistant. Provide accurate, clear and well-structured responses.</textarea>
+
+            </div>
+
+        </section>
+
+
+        <!-- Configuration Summary -->
+        <section class="card summary-card">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Configuration Summary</h2>
+                    <p>Overview of the current agent configuration.</p>
+                </div>
+
+            </div>
+
+
+            <div class="summary-grid">
+
+                <div class="summary-item">
+                    <span class="summary-label">Agent</span>
+                    <strong id="summaryAgent">Research Assistant</strong>
+                </div>
+
+                <div class="summary-item">
+                    <span class="summary-label">Model</span>
+                    <strong id="summaryModel">GPT-5.6</strong>
+                </div>
+
+                <div class="summary-item">
+                    <span class="summary-label">Response Style</span>
+                    <strong id="summaryStyle">Balanced</strong>
+                </div>
+
+                <div class="summary-item">
+                    <span class="summary-label">Temperature</span>
+                    <strong id="summaryTemperature">0.7</strong>
+                </div>
+
+                <div class="summary-item">
+                    <span class="summary-label">Status</span>
+                    <strong class="status-active">Active</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+        <div class="page-footer">
+
+            <span>
+                Agent configuration
+            </span>
+
+            <span id="statusMessage"></span>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- Toast -->
+<div id="toast" class="toast">
+    Configuration saved successfully!
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

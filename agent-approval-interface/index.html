@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agent Approval Interface</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ✦
+            </div>
+
+            <div>
+                <h2>Agent Studio</h2>
+                <p>AI Workspace</p>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <!-- Configuration -->
+            <a
+                href="../agent-configuration/index.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Configuration</span>
+            </a>
+
+
+            <!-- Permissions -->
+            <a
+                href="../agent-permissions/index.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">♟</span>
+                <span>Permissions</span>
+            </a>
+
+
+            <!-- Current Page -->
+            <a
+                href="index.html"
+                class="nav-item active"
+            >
+                <span class="nav-icon">✓</span>
+                <span>Approvals</span>
+            </a>
+
+
+            <!-- Human-in-the-loop Workflow -->
+            <a
+                href="../human-in-the-loop-workflow/index.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">↔</span>
+                <span>Workflows</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+
+        <!-- Breadcrumb -->
+
+        <div class="breadcrumb">
+            Agents / Approvals
+        </div>
+
+
+        <!-- =========================
+             PAGE HEADER
+        ========================== -->
+
+        <div class="page-header">
+
+            <div>
+
+                <h1>
+                    Agent Approval Interface
+                </h1>
+
+                <p>
+                    Review and approve actions that require human authorization.
+                </p>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <button
+                    id="resetBtn"
+                    class="btn secondary"
+                >
+                    Reset
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             SUMMARY CARDS
+        ========================== -->
+
+        <section class="summary-cards">
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon pending-icon">
+                    !
+                </div>
+
+                <div>
+
+                    <span>
+                        Pending
+                    </span>
+
+                    <strong id="pendingCount">
+                        3
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon approved-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <span>
+                        Approved
+                    </span>
+
+                    <strong id="approvedCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon rejected-icon">
+                    ×
+                </div>
+
+                <div>
+
+                    <span>
+                        Rejected
+                    </span>
+
+                    <strong id="rejectedCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             APPROVAL TOOLBAR
+        ========================== -->
+
+        <section class="toolbar">
+
+            <div>
+
+                <h2>
+                    Approval Requests
+                </h2>
+
+                <p>
+                    Review actions submitted by your AI agents.
+                </p>
+
+            </div>
+
+
+            <div class="toolbar-controls">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search requests..."
+                >
+
+
+                <select id="filterSelect">
+
+                    <option value="all">
+                        All Requests
+                    </option>
+
+                    <option value="pending">
+                        Pending
+                    </option>
+
+                    <option value="approved">
+                        Approved
+                    </option>
+
+                    <option value="rejected">
+                        Rejected
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             APPROVAL REQUESTS
+        ========================== -->
+
+        <section
+            id="approvalList"
+            class="approval-list"
+        >
+
+
+            <!-- REQUEST 1 -->
+
+            <article
+                class="approval-card"
+                data-status="pending"
+                data-title="External API Data Request"
+            >
+
+                <div class="approval-top">
+
+                    <div class="request-info">
+
+                        <div class="request-icon">
+                            API
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                External API Data Request
+                            </h3>
+
+                            <p>
+                                Research Assistant
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="status pending">
+                        Pending
+                    </span>
+
+                </div>
+
+
+                <div class="request-details">
+
+                    <div class="detail-item">
+
+                        <span>
+                            Action
+                        </span>
+
+                        <strong>
+                            Access external API
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Risk Level
+                        </span>
+
+                        <strong class="risk-medium">
+                            Medium
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Requested
+                        </span>
+
+                        <strong>
+                            5 minutes ago
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="request-description">
+
+                    The agent wants to access an external research API
+                    to retrieve additional information for the current task.
+
+                </div>
+
+
+                <div class="approval-actions">
+
+                    <button
+                        class="btn reject-btn"
+                        data-action="reject"
+                    >
+                        Reject
+                    </button>
+
+                    <button
+                        class="btn approve-btn"
+                        data-action="approve"
+                    >
+                        Approve
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- REQUEST 2 -->
+
+            <article
+                class="approval-card"
+                data-status="pending"
+                data-title="File Export Request"
+            >
+
+                <div class="approval-top">
+
+                    <div class="request-info">
+
+                        <div class="request-icon">
+                            DOC
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                File Export Request
+                            </h3>
+
+                            <p>
+                                Document Assistant
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="status pending">
+                        Pending
+                    </span>
+
+                </div>
+
+
+                <div class="request-details">
+
+                    <div class="detail-item">
+
+                        <span>
+                            Action
+                        </span>
+
+                        <strong>
+                            Export analysis report
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Risk Level
+                        </span>
+
+                        <strong class="risk-low">
+                            Low
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Requested
+                        </span>
+
+                        <strong>
+                            12 minutes ago
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="request-description">
+
+                    The agent wants to export the completed research
+                    analysis as a downloadable document.
+
+                </div>
+
+
+                <div class="approval-actions">
+
+                    <button
+                        class="btn reject-btn"
+                        data-action="reject"
+                    >
+                        Reject
+                    </button>
+
+                    <button
+                        class="btn approve-btn"
+                        data-action="approve"
+                    >
+                        Approve
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- REQUEST 3 -->
+
+            <article
+                class="approval-card"
+                data-status="pending"
+                data-title="Database Update Request"
+            >
+
+                <div class="approval-top">
+
+                    <div class="request-info">
+
+                        <div class="request-icon">
+                            DB
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Database Update Request
+                            </h3>
+
+                            <p>
+                                Data Management Agent
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="status pending">
+                        Pending
+                    </span>
+
+                </div>
+
+
+                <div class="request-details">
+
+                    <div class="detail-item">
+
+                        <span>
+                            Action
+                        </span>
+
+                        <strong>
+                            Update customer records
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Risk Level
+                        </span>
+
+                        <strong class="risk-high">
+                            High
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Requested
+                        </span>
+
+                        <strong>
+                            20 minutes ago
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="request-description">
+
+                    The agent has requested permission to modify
+                    selected records in the customer database.
+
+                </div>
+
+
+                <div class="approval-actions">
+
+                    <button
+                        class="btn reject-btn"
+                        data-action="reject"
+                    >
+                        Reject
+                    </button>
+
+                    <button
+                        class="btn approve-btn"
+                        data-action="approve"
+                    >
+                        Approve
+                    </button>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+
+        <!-- Empty State -->
+
+        <div
+            id="emptyState"
+            class="empty-state"
+        >
+
+            <div class="empty-icon">
+                ✓
+            </div>
+
+            <h3>
+                No approval requests found
+            </h3>
+
+            <p>
+                There are no requests matching your current filter.
+            </p>
+
+        </div>
+
+
+        <!-- Footer -->
+
+        <div class="page-footer">
+
+            <span>
+                Agent Approval Interface
+            </span>
+
+            <span>
+                Human authorization required for sensitive actions
+            </span>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- Toast -->
+
+<div
+    id="toast"
+    class="toast"
+>
+    Action completed successfully.
+</div>
+
+
+<!-- JavaScript -->
+
+<script src="script.js"></script>
+
+</body>
+</html>

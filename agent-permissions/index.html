@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agent Permissions</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ✦
+            </div>
+
+            <div>
+                <h2>Agent Studio</h2>
+                <p>AI Workspace</p>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <!-- Configuration -->
+            <a
+                href="../agent-configuration/index.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Configuration</span>
+            </a>
+
+
+            <!-- Permissions - CURRENT PAGE -->
+            <a
+                href="index.html"
+                class="nav-item active"
+            >
+                <span class="nav-icon">♟</span>
+                <span>Permissions</span>
+            </a>
+
+
+            <!-- APPROVALS - FIXED LINK -->
+            <a
+                href="../agent-approval-interface/index.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">✓</span>
+                <span>Approvals</span>
+            </a>
+
+
+            <!-- Human-in-the-loop Workflow -->
+            <a
+                href="../human-in-the-loop-workflow/index.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">↔</span>
+                <span>Workflows</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            Agents / Permissions
+        </div>
+
+
+        <!-- HEADER -->
+        <div class="page-header">
+
+            <div>
+
+                <h1>
+                    Agent Permissions
+                </h1>
+
+                <p>
+                    Control what your AI agent can access and what actions it can perform.
+                </p>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <button
+                    id="resetBtn"
+                    class="btn secondary"
+                >
+                    Reset
+                </button>
+
+                <button
+                    id="saveBtn"
+                    class="btn primary"
+                >
+                    Save Permissions
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- AGENT CARD -->
+        <section class="agent-card">
+
+            <div class="agent-info">
+
+                <div class="agent-avatar">
+                    AI
+                </div>
+
+                <div>
+
+                    <h2>
+                        Research Assistant
+                    </h2>
+
+                    <p>
+                        AI Research & Analysis Agent
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="access-control">
+
+                <label for="accessLevel">
+                    Access Level
+                </label>
+
+                <select id="accessLevel">
+
+                    <option value="standard">
+                        Standard
+                    </option>
+
+                    <option value="restricted">
+                        Restricted
+                    </option>
+
+                    <option value="full">
+                        Full Access
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- PERMISSIONS -->
+        <section class="card">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Permissions
+                    </h2>
+
+                    <p>
+                        Enable or disable specific capabilities for this agent.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- WEB SEARCH -->
+            <div class="permission-row">
+
+                <div class="permission-info">
+
+                    <div class="permission-icon">
+                        ⌕
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Web Search
+                        </h3>
+
+                        <p>
+                            Allow the agent to search and retrieve information from the web.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        class="permission-toggle"
+                        data-permission="Web Search"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- FILE ACCESS -->
+            <div class="permission-row">
+
+                <div class="permission-info">
+
+                    <div class="permission-icon">
+                        ▣
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            File Access
+                        </h3>
+
+                        <p>
+                            Allow the agent to read and analyze uploaded files.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        class="permission-toggle"
+                        data-permission="File Access"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- CODE EXECUTION -->
+            <div class="permission-row">
+
+                <div class="permission-info">
+
+                    <div class="permission-icon">
+                        ⌘
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Code Execution
+                        </h3>
+
+                        <p>
+                            Allow the agent to execute code in a secure environment.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        class="permission-toggle"
+                        data-permission="Code Execution"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- EMAIL ACCESS -->
+            <div class="permission-row">
+
+                <div class="permission-info">
+
+                    <div class="permission-icon">
+                        ✉
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Email Access
+                        </h3>
+
+                        <p>
+                            Allow the agent to read and send email messages.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        class="permission-toggle"
+                        data-permission="Email Access"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- EXTERNAL ACTIONS -->
+            <div class="permission-row">
+
+                <div class="permission-info">
+
+                    <div class="permission-icon">
+                        ●
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            External Actions
+                        </h3>
+
+                        <p>
+                            Allow the agent to perform actions on external services.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        class="permission-toggle"
+                        data-permission="External Actions"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- SECURITY -->
+        <section class="card security-card">
+
+            <div class="security-icon">
+                !
+            </div>
+
+            <div>
+
+                <h2>
+                    Security
+                </h2>
+
+                <p>
+                    Sensitive permissions should only be enabled when required.
+                    Review agent permissions regularly.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SUMMARY -->
+        <section class="summary-section">
+
+            <div>
+
+                <span>
+                    Permission Summary
+                </span>
+
+                <strong id="permissionCount">
+                    2
+                </strong>
+
+                <small>
+                    permissions enabled
+                </small>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <div class="page-footer">
+
+            <span>
+                Agent Permissions
+            </span>
+
+            <span>
+                Review access before enabling sensitive capabilities
+            </span>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- TOAST -->
+<div
+    id="toast"
+    class="toast"
+>
+    Permissions saved successfully!
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
