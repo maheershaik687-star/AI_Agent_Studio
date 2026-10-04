@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Human-in-the-loop Workflow | Agent Studio</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ==================== SIDEBAR ==================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ✦
+            </div>
+
+            <div>
+                <h2>Agent Studio</h2>
+                <p>AI Workspace</p>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <!-- Configuration -->
+            <a
+                href="../agent-configuration/index.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Configuration</span>
+            </a>
+
+
+            <!-- Permissions -->
+            <a
+                href="../agent-permissions/index.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">♟</span>
+                <span>Permissions</span>
+            </a>
+
+
+            <!-- Approvals -->
+            <a
+                href="../agent-approval-interface/index.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">✓</span>
+                <span>Approvals</span>
+            </a>
+
+
+            <!-- Workflows - CURRENT PAGE -->
+            <a
+                href="index.html"
+                class="nav-item active"
+            >
+                <span class="nav-icon">↔</span>
+                <span>Workflows</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+
+    <main class="main-content">
+
+        <!-- Breadcrumb -->
+
+        <div class="breadcrumb">
+            Agents / Human-in-the-loop Workflow
+        </div>
+
+
+        <!-- Page Header -->
+
+        <div class="page-header">
+
+            <div>
+
+                <h1>
+                    Human-in-the-loop Workflow
+                </h1>
+
+                <p>
+                    Review and control AI actions before they continue through the workflow.
+                </p>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <button
+                    id="resetBtn"
+                    class="btn secondary"
+                >
+                    Reset Workflow
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================== STATUS CARDS ==================== -->
+
+        <section class="status-grid">
+
+            <div class="status-card">
+
+                <div class="status-icon pending">
+                    !
+                </div>
+
+                <div>
+                    <span>Pending Review</span>
+                    <strong id="pendingCount">1</strong>
+                </div>
+
+            </div>
+
+
+            <div class="status-card">
+
+                <div class="status-icon progress">
+                    ↻
+                </div>
+
+                <div>
+                    <span>In Progress</span>
+                    <strong id="progressCount">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="status-card">
+
+                <div class="status-icon completed">
+                    ✓
+                </div>
+
+                <div>
+                    <span>Completed</span>
+                    <strong id="completedCount">0</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== WORKFLOW CARD ==================== -->
+
+        <section class="card workflow-card">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Approval Workflow
+                    </h2>
+
+                    <p>
+                        The agent pauses before executing a sensitive action.
+                    </p>
+
+                </div>
+
+                <span
+                    id="workflowStatus"
+                    class="status-badge pending-badge"
+                >
+                    Waiting for Review
+                </span>
+
+            </div>
+
+
+            <!-- Workflow Steps -->
+
+            <div class="workflow-steps">
+
+                <!-- Step 1 -->
+
+                <div
+                    class="workflow-step completed-step"
+                    id="stepAgent"
+                >
+
+                    <div class="step-number">
+                        ✓
+                    </div>
+
+                    <div class="step-content">
+
+                        <span class="step-label">
+                            STEP 1
+                        </span>
+
+                        <h3>
+                            AI Agent
+                        </h3>
+
+                        <p>
+                            Agent analyzed the request and prepared an action.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="connector"></div>
+
+
+                <!-- Step 2 -->
+
+                <div
+                    class="workflow-step active-step"
+                    id="stepReview"
+                >
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <div class="step-content">
+
+                        <span class="step-label">
+                            STEP 2
+                        </span>
+
+                        <h3>
+                            Human Review
+                        </h3>
+
+                        <p>
+                            A human reviewer evaluates the proposed action.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="connector"></div>
+
+
+                <!-- Step 3 -->
+
+                <div
+                    class="workflow-step"
+                    id="stepAction"
+                >
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <div class="step-content">
+
+                        <span class="step-label">
+                            STEP 3
+                        </span>
+
+                        <h3>
+                            Execute Action
+                        </h3>
+
+                        <p>
+                            The approved action continues through the workflow.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== REVIEW SECTION ==================== -->
+
+        <section class="card review-card">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Review Required
+                    </h2>
+
+                    <p>
+                        Review the proposed action before allowing the agent to continue.
+                    </p>
+
+                </div>
+
+                <span class="risk-badge">
+                    Medium Risk
+                </span>
+
+            </div>
+
+
+            <!-- Proposed Action -->
+
+            <div class="proposal-box">
+
+                <div class="proposal-header">
+
+                    <div>
+
+                        <span class="small-label">
+                            PROPOSED ACTION
+                        </span>
+
+                        <h3>
+                            Send project status update
+                        </h3>
+
+                    </div>
+
+                    <span class="agent-label">
+                        Research Assistant
+                    </span>
+
+                </div>
+
+
+                <div class="proposal-details">
+
+                    <div class="detail-item">
+
+                        <span>
+                            Recipient
+                        </span>
+
+                        <strong>
+                            Project Team
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Action
+                        </span>
+
+                        <strong>
+                            Send Email
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Trigger
+                        </span>
+
+                        <strong>
+                            Weekly Project Update
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="message-preview">
+
+                    <span class="small-label">
+                        MESSAGE PREVIEW
+                    </span>
+
+                    <p>
+                        The AI agent prepared a project progress update
+                        containing completed tasks, current work, and
+                        upcoming milestones.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Reviewer Information -->
+
+            <div class="reviewer-info">
+
+                <div class="reviewer-icon">
+                    👤
+                </div>
+
+                <div>
+
+                    <strong>
+                        Human approval required
+                    </strong>
+
+                    <p>
+                        The agent will remain paused until a reviewer
+                        makes a decision.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Actions -->
+
+            <div class="review-actions">
+
+                <button
+                    id="rejectBtn"
+                    class="btn danger"
+                >
+                    Reject
+                </button>
+
+                <button
+                    id="changesBtn"
+                    class="btn secondary"
+                >
+                    Request Changes
+                </button>
+
+                <button
+                    id="approveBtn"
+                    class="btn primary"
+                >
+                    Approve & Continue
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== AUDIT TRAIL ==================== -->
+
+        <section class="card audit-card">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Workflow Activity
+                    </h2>
+
+                    <p>
+                        Track decisions and workflow progress.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot completed-dot">
+                        ✓
+                    </div>
+
+                    <div class="timeline-content">
+
+                        <strong>
+                            Agent prepared an action
+                        </strong>
+
+                        <span>
+                            Research Assistant · Just now
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot pending-dot">
+                        !
+                    </div>
+
+                    <div class="timeline-content">
+
+                        <strong>
+                            Waiting for human review
+                        </strong>
+
+                        <span>
+                            Approval checkpoint · Pending
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== FOOTER ==================== -->
+
+        <footer class="page-footer">
+
+            <span>
+                Human-in-the-loop Workflow
+            </span>
+
+            <span>
+                Human oversight enabled
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- Toast Notification -->
+
+<div
+    id="toast"
+    class="toast"
+>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
