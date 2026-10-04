@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Builder | AI Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">✳</div>
+        <div><strong>nexus<span>ai</span></strong><small>AGENT STUDIO</small></div>
+      </div>
+
+      <div class="workspace">
+        <div class="workspace-icon">N</div>
+        <div><b>Nexus Workspace</b><small>Free plan</small></div>
+        <span>⌄</span>
+      </div>
+
+      <p class="nav-label">WORKSPACE</p>
+      <a class="nav-item" href="#"><span>▦</span> Overview</a>
+      <a class="nav-item" href="#"><span>◈</span> My Agents <em>12</em></a>
+      <a class="nav-item active" href="#"><span>⌘</span> Agent Builder</a>
+      <a class="nav-item" href="#"><span>⌁</span> Workflows</a>
+      <a class="nav-item" href="#"><span>◷</span> Execution Logs</a>
+
+      <p class="nav-label">DEVELOPMENT</p>
+      <a class="nav-item" href="#"><span>▤</span> Tools & Integrations</a>
+      <a class="nav-item" href="#"><span>⚙</span> Settings</a>
+
+      <div class="sidebar-bottom">
+        <div class="usage">
+          <div class="usage-head"><span>Monthly usage</span><b>68%</b></div>
+          <div class="progress"><i></i></div>
+          <small>6,800 / 10,000 credits</small>
+        </div>
+        <div class="profile">
+          <div class="avatar">SM</div>
+          <div><b>Shaik Mynuddin</b><small>Developer</small></div>
+          <span>•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="breadcrumbs">My Agents <span>/</span> <b>New Agent</b></div>
+        <div class="top-actions">
+          <span class="save-status" id="saveStatus">● All changes saved</span>
+          <button class="icon-btn" title="Notifications">♧</button>
+          <button class="help-btn">? Help</button>
+        </div>
+      </header>
+
+      <section class="builder-header">
+        <div>
+          <div class="eyebrow">VISUAL WORKFLOW EDITOR</div>
+          <h1>Build your AI agent<span class="live-dot"></span></h1>
+          <p>Design, configure, and orchestrate intelligent workflows.</p>
+        </div>
+        <div class="header-buttons">
+          <button class="btn secondary" id="resetBtn">↺ Reset</button>
+          <button class="btn secondary" id="saveBtn">▣ Save draft</button>
+          <button class="btn primary" id="runBtn">▶ Run agent</button>
+        </div>
+      </section>
+
+      <section class="agent-info">
+        <div class="agent-symbol">✦</div>
+        <div class="agent-name">
+          <input id="agentName" value="Customer Support Assistant" aria-label="Agent name">
+          <span><i></i> Draft · Updated just now</span>
+        </div>
+        <div class="info-divider"></div>
+        <div class="model-info"><small>MODEL</small><b>GPT-4o mini⌄</b></div>
+        <div class="info-divider"></div>
+        <div class="model-info"><small>VERSION</small><b>v1.0.0</b></div>
+        <button class="more-btn" id="moreBtn">•••</button>
+      </section>
+
+      <div class="builder-layout">
+        <aside class="node-library">
+          <div class="library-heading">
+            <div><h3>Components</h3><p>Drag blocks to canvas</p></div>
+            <button class="small-icon" id="collapseLibrary">−</button>
+          </div>
+          <div class="search-box">⌕ <input id="nodeSearch" placeholder="Search components..."></div>
+
+          <div class="component-group">
+            <p class="group-label">CORE</p>
+            <div class="node-option" draggable="true" data-type="trigger"><div class="node-icon trigger">⚡</div><div><b>Trigger</b><small>Start your agent</small></div><span>⠿</span></div>
+            <div class="node-option" draggable="true" data-type="llm"><div class="node-icon llm">✧</div><div><b>AI Model</b><small>Reason and generate</small></div><span>⠿</span></div>
+            <div class="node-option" draggable="true" data-type="memory"><div class="node-icon memory">◫</div><div><b>Memory</b><small>Store context</small></div><span>⠿</span></div>
+          </div>
+
+          <div class="component-group">
+            <p class="group-label">LOGIC</p>
+            <div class="node-option" draggable="true" data-type="condition"><div class="node-icon condition">⑂</div><div><b>Condition</b><small>Branch decisions</small></div><span>⠿</span></div>
+            <div class="node-option" draggable="true" data-type="loop"><div class="node-icon loop">⟳</div><div><b>Loop</b><small>Repeat actions</small></div><span>⠿</span></div>
+          </div>
+
+          <div class="component-group">
+            <p class="group-label">ACTIONS</p>
+            <div class="node-option" draggable="true" data-type="tool"><div class="node-icon tool">⌘</div><div><b>Tool / API</b><small>Call external tools</small></div><span>⠿</span></div>
+            <div class="node-option" draggable="true" data-type="output"><div class="node-icon output">↗</div><div><b>Output</b><small>Return a response</small></div><span>⠿</span></div>
+          </div>
+
+          <div class="library-tip"><span>✦</span><div><b>Pro tip</b><p>Connect blocks in sequence to define how your agent thinks and acts.</p></div></div>
+        </aside>
+
+        <section class="canvas-section">
+          <div class="canvas-toolbar">
+            <div class="canvas-tabs"><button class="tab active">◈ Workflow</button><button class="tab">⚙ Settings</button></div>
+            <div class="canvas-tools">
+              <button id="zoomOut">−</button><span id="zoomLabel">100%</span><button id="zoomIn">+</button>
+              <span class="tool-divider"></span>
+              <button id="fitBtn" title="Fit canvas">⛶</button>
+              <button id="gridBtn" title="Toggle grid">▦</button>
+            </div>
+          </div>
+
+          <div class="canvas" id="canvas">
+            <div class="canvas-inner" id="canvasInner">
+              <svg class="connections" id="connections"></svg>
+              <div class="workflow-node trigger-node" data-id="1" style="left:90px;top:90px">
+                <div class="node-top"><div class="node-icon trigger">⚡</div><span class="node-kind">TRIGGER</span><button class="node-menu">•••</button></div>
+                <h4>When message received</h4><p>Incoming customer message</p>
+                <div class="node-footer"><span class="status-dot"></span> Active <span class="port output-port" data-port="out"></span></div>
+              </div>
+
+              <div class="workflow-node" data-id="2" style="left:390px;top:90px">
+                <div class="node-top"><div class="node-icon llm">✧</div><span class="node-kind">AI MODEL</span><button class="node-menu">•••</button></div>
+                <h4>Understand request</h4><p>Analyze intent and context</p>
+                <div class="node-footer"><span class="model-tag">GPT-4o mini</span><span class="port input-port" data-port="in"></span><span class="port output-port" data-port="out"></span></div>
+              </div>
+
+              <div class="workflow-node" data-id="3" style="left:690px;top:90px">
+                <div class="node-top"><div class="node-icon condition">⑂</div><span class="node-kind">CONDITION</span><button class="node-menu">•••</button></div>
+                <h4>Is it a billing issue?</h4><p>Route based on intent</p>
+                <div class="node-footer"><span class="branch-tag">Yes / No</span><span class="port input-port" data-port="in"></span><span class="port output-port" data-port="out"></span></div>
+              </div>
+
+              <div class="workflow-node" data-id="4" style="left:690px;top:330px">
+                <div class="node-top"><div class="node-icon tool">⌘</div><span class="node-kind">TOOL / API</span><button class="node-menu">•••</button></div>
+                <h4>Fetch billing details</h4><p>Retrieve customer account</p>
+                <div class="node-footer"><span class="status-dot"></span> API connected <span class="port input-port" data-port="in"></span><span class="port output-port" data-port="out"></span></div>
+              </div>
+
+              <div class="workflow-node output-node" data-id="5" style="left:990px;top:330px">
+                <div class="node-top"><div class="node-icon output">↗</div><span class="node-kind">OUTPUT</span><button class="node-menu">•••</button></div>
+                <h4>Send response</h4><p>Reply to customer</p>
+                <div class="node-footer"><span class="status-dot"></span> Final response <span class="port input-port" data-port="in"></span></div>
+              </div>
+            </div>
+            <div class="canvas-hint">Drag components here · Select a block to configure</div>
+          </div>
+
+          <div class="canvas-footer"><span><i class="status-dot"></i> 5 blocks <span class="footer-sep">·</span> 4 connections</span><span>Last run: Never</span></div>
+        </section>
+
+        <aside class="config-panel">
+          <div class="config-head"><div><h3>Configuration</h3><p id="configSubtitle">Customize selected block</p></div><button id="closeConfig">×</button></div>
+          <div id="configContent">
+            <div class="empty-config"><div>✧</div><b>Select a component</b><p>Click any block on the canvas to view and edit its configuration.</p></div>
+          </div>
+          <div class="config-bottom"><button class="btn primary block" id="applyBtn">Apply changes</button></div>
+        </aside>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

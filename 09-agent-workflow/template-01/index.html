@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentHub | Workflow Builder</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">✦</div>
+            <span>AgentHub</span>
+        </div>
+
+        <div class="workspace">
+            <div class="workspace-icon">A</div>
+            <div>
+                <strong>Acme Workspace</strong>
+                <small>Enterprise Plan</small>
+            </div>
+            <span>⌄</span>
+        </div>
+
+        <div class="nav-label">WORKSPACE</div>
+
+        <nav>
+            <a href="#"><span>⌂</span> Dashboard</a>
+            <a href="#"><span>✧</span> AI Agents</a>
+            <a class="active" href="#"><span>⌘</span> Workflows</a>
+            <a href="#"><span>▤</span> Executions</a>
+            <a href="#"><span>◈</span> Templates</a>
+            <a href="#"><span>⚙</span> Settings</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="plan-card">
+                <div class="plan-icon">⚡</div>
+                <strong>Workflow Pro</strong>
+                <p>Build smarter AI automation workflows.</p>
+                <button id="upgradeBtn">Explore Features →</button>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">SM</div>
+                <div>
+                    <strong>Shaik Mynuddin</strong>
+                    <small>Workspace Admin</small>
+                </div>
+                <span>•••</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <header class="topbar">
+            <div class="breadcrumbs">
+                Workspace <span>/</span> Workflows <span>/</span>
+                <strong>Visual Builder</strong>
+            </div>
+
+            <div class="top-actions">
+                <button class="icon-btn" id="searchBtn">⌕</button>
+                <button class="icon-btn" id="notificationBtn">♧</button>
+                <div class="top-avatar">SM</div>
+            </div>
+        </header>
+
+        <!-- EDITOR TOOLBAR -->
+        <section class="editor-toolbar">
+
+            <div class="workflow-title">
+                <div class="workflow-symbol">⌘</div>
+                <div>
+                    <h1>Customer Support Agent <span>✎</span></h1>
+                    <p><span class="saved-dot"></span> All changes saved</p>
+                </div>
+            </div>
+
+            <div class="toolbar-actions">
+                <button class="tool-btn" id="undoBtn">↶ Undo</button>
+                <button class="tool-btn" id="redoBtn">↷ Redo</button>
+                <button class="tool-btn" id="saveBtn">▣ Save</button>
+                <button class="run-btn" id="runBtn">▶ Run Workflow</button>
+            </div>
+
+        </section>
+
+        <!-- EDITOR BODY -->
+        <section class="editor">
+
+            <!-- COMPONENT PANEL -->
+            <aside class="component-panel">
+
+                <div class="panel-heading">
+                    <h3>Components</h3>
+                    <button id="collapseBtn">−</button>
+                </div>
+
+                <div class="component-search">
+                    <span>⌕</span>
+                    <input type="text" id="componentSearch"
+                           placeholder="Search components...">
+                </div>
+
+                <div class="component-group">
+                    <div class="group-title">CORE</div>
+
+                    <button class="component" data-type="trigger">
+                        <span class="component-icon trigger">▶</span>
+                        <span><strong>Start Trigger</strong><small>Workflow entry point</small></span>
+                        <b>+</b>
+                    </button>
+
+                    <button class="component" data-type="agent">
+                        <span class="component-icon agent">✦</span>
+                        <span><strong>AI Agent</strong><small>Language model</small></span>
+                        <b>+</b>
+                    </button>
+
+                    <button class="component" data-type="tool">
+                        <span class="component-icon tool">⚒</span>
+                        <span><strong>Tool</strong><small>External action</small></span>
+                        <b>+</b>
+                    </button>
+
+                    <button class="component" data-type="condition">
+                        <span class="component-icon condition">◇</span>
+                        <span><strong>Condition</strong><small>Decision branch</small></span>
+                        <b>+</b>
+                    </button>
+
+                    <button class="component" data-type="knowledge">
+                        <span class="component-icon knowledge">▤</span>
+                        <span><strong>Knowledge Base</strong><small>Retrieve information</small></span>
+                        <b>+</b>
+                    </button>
+
+                    <button class="component" data-type="output">
+                        <span class="component-icon output">▣</span>
+                        <span><strong>Output</strong><small>Final response</small></span>
+                        <b>+</b>
+                    </button>
+                </div>
+
+                <div class="component-group">
+                    <div class="group-title">ADVANCED</div>
+
+                    <button class="component" data-type="memory">
+                        <span class="component-icon memory">◉</span>
+                        <span><strong>Memory</strong><small>Store context</small></span>
+                        <b>+</b>
+                    </button>
+
+                    <button class="component" data-type="api">
+                        <span class="component-icon api">⌁</span>
+                        <span><strong>API Request</strong><small>HTTP integration</small></span>
+                        <b>+</b>
+                    </button>
+                </div>
+
+                <div class="panel-hint">
+                    <span>ⓘ</span>
+                    Click + to add nodes to your canvas.
+                </div>
+
+            </aside>
+
+            <!-- CANVAS -->
+            <section class="canvas-area">
+
+                <div class="canvas-top">
+                    <div class="canvas-tabs">
+                        <button class="canvas-tab active">Workflow Canvas</button>
+                        <button class="canvas-tab" id="logsTab">Execution Logs</button>
+                    </div>
+
+                    <div class="canvas-controls">
+                        <button id="zoomOut">−</button>
+                        <span id="zoomValue">100%</span>
+                        <button id="zoomIn">+</button>
+                        <button id="fitBtn">⛶</button>
+                    </div>
+                </div>
+
+                <div class="canvas" id="canvas">
+
+                    <div class="canvas-grid"></div>
+
+                    <svg class="connections" id="connections">
+                        <defs>
+                            <marker id="arrow" markerWidth="8" markerHeight="8"
+                                    refX="6" refY="3" orient="auto">
+                                <path d="M0,0 L0,6 L6,3 z" fill="#8274ee"/>
+                            </marker>
+                        </defs>
+                        <g id="connectionLines"></g>
+                    </svg>
+
+                    <div class="canvas-content" id="canvasContent">
+
+                        <div class="workflow-node trigger-node"
+                             data-id="1" style="left:40px;top:220px;">
+
+                            <div class="node-header">
+                                <span class="node-icon trigger">▶</span>
+                                <span class="node-category">TRIGGER</span>
+                                <button class="node-menu">•••</button>
+                            </div>
+
+                            <h3>Start</h3>
+                            <p>Receive user query</p>
+
+                            <div class="node-footer">
+                                <span class="node-status">● Ready</span>
+                                <span>01</span>
+                            </div>
+
+                            <span class="port output-port"></span>
+                        </div>
+
+                        <div class="workflow-node agent-node"
+                             data-id="2" style="left:280px;top:220px;">
+
+                            <span class="port input-port"></span>
+
+                            <div class="node-header">
+                                <span class="node-icon agent">✦</span>
+                                <span class="node-category">AI MODEL</span>
+                                <button class="node-menu">•••</button>
+                            </div>
+
+                            <h3>Understand Query</h3>
+                            <p>Analyze user intent</p>
+
+                            <div class="node-tag">GPT-4o</div>
+
+                            <div class="node-footer">
+                                <span class="node-status">● Ready</span>
+                                <span>02</span>
+                            </div>
+
+                            <span class="port output-port"></span>
+                        </div>
+
+                        <div class="workflow-node tool-node"
+                             data-id="3" style="left:530px;top:90px;">
+
+                            <span class="port input-port"></span>
+
+                            <div class="node-header">
+                                <span class="node-icon tool">⌕</span>
+                                <span class="node-category">TOOL</span>
+                                <button class="node-menu">•••</button>
+                            </div>
+
+                            <h3>Search Knowledge</h3>
+                            <p>Find relevant answers</p>
+
+                            <div class="node-tag">Web Search</div>
+
+                            <div class="node-footer">
+                                <span class="node-status">● Ready</span>
+                                <span>03</span>
+                            </div>
+
+                            <span class="port output-port"></span>
+                        </div>
+
+                        <div class="workflow-node condition-node"
+                             data-id="4" style="left:530px;top:350px;">
+
+                            <span class="port input-port"></span>
+
+                            <div class="node-header">
+                                <span class="node-icon condition">◇</span>
+                                <span class="node-category">LOGIC</span>
+                                <button class="node-menu">•••</button>
+                            </div>
+
+                            <h3>Check Confidence</h3>
+                            <p>Evaluate response quality</p>
+
+                            <div class="node-tag">Score ≥ 80%</div>
+
+                            <div class="node-footer">
+                                <span class="node-status">● Ready</span>
+                                <span>04</span>
+                            </div>
+
+                            <span class="port output-port"></span>
+                        </div>
+
+                        <div class="workflow-node output-node"
+                             data-id="5" style="left:790px;top:220px;">
+
+                            <span class="port input-port"></span>
+
+                            <div class="node-header">
+                                <span class="node-icon output">✓</span>
+                                <span class="node-category">OUTPUT</span>
+                                <button class="node-menu">•••</button>
+                            </div>
+
+                            <h3>Generate Response</h3>
+                            <p>Return final answer</p>
+
+                            <div class="node-tag">Response</div>
+
+                            <div class="node-footer">
+                                <span class="node-status">● Ready</span>
+                                <span>05</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="canvas-empty" id="emptyHint">
+                        Select a component to add it to your workflow.
+                    </div>
+
+                    <div class="canvas-minimap">
+                        <div class="mini-title">MINIMAP</div>
+                        <div class="mini-nodes">
+                            <span></span><span></span><span></span>
+                            <span></span><span></span>
+                        </div>
+                    </div>
+
+                    <div class="canvas-toast" id="canvasToast"></div>
+
+                </div>
+
+                <div class="canvas-footer">
+                    <span><i class="green-dot"></i> Workflow ready</span>
+                    <span id="nodeCount">5 Nodes</span>
+                    <span>Auto-layout enabled</span>
+                </div>
+
+            </section>
+
+            <!-- PROPERTIES PANEL -->
+            <aside class="properties-panel">
+
+                <div class="properties-heading">
+                    <h3>Node Settings</h3>
+                    <button id="closeProperties">×</button>
+                </div>
+
+                <div class="selected-node">
+                    <div class="selected-icon" id="selectedIcon">✦</div>
+                    <div>
+                        <strong id="selectedName">AI Agent</strong>
+                        <small id="selectedType">Language Model</small>
+                    </div>
+                </div>
+
+                <label for="nodeName">Node Name</label>
+                <input id="nodeName" type="text" value="Understand Query">
+
+                <label for="nodeDescription">Description</label>
+                <textarea id="nodeDescription" rows="3">Analyze user intent and identify the required action.</textarea>
+
+                <label for="modelSelect">Model</label>
+                <select id="modelSelect">
+                    <option>GPT-4o</option>
+                    <option>GPT-4.1</option>
+                    <option>Claude Sonnet</option>
+                    <option>Gemini Flash</option>
+                </select>
+
+                <label for="temperature">Temperature <span id="temperatureValue">0.7</span></label>
+                <input type="range" id="temperature" min="0" max="1"
+                       step="0.1" value="0.7">
+
+                <div class="property-divider"></div>
+
+                <div class="toggle-row">
+                    <div>
+                        <strong>Stream Response</strong>
+                        <small>Enable streaming output</small>
+                    </div>
+                    <input type="checkbox" checked>
+                </div>
+
+                <div class="toggle-row">
+                    <div>
+                        <strong>Save to Memory</strong>
+                        <small>Store conversation context</small>
+                    </div>
+                    <input type="checkbox" checked>
+                </div>
+
+                <div class="property-divider"></div>
+
+                <button class="delete-node" id="deleteNode">⌫ Delete Selected Node</button>
+
+            </aside>
+
+        </section>
+
+        <!-- STATUS BAR -->
+        <footer class="statusbar">
+            <span>● System Operational</span>
+            <span>Workflow Builder v1.0</span>
+            <span>Built for AgentHub</span>
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- RUN MODAL -->
+<div class="modal-overlay" id="runModal">
+    <div class="run-modal">
+        <button class="modal-close" id="closeRun">×</button>
+        <div class="run-success">✓</div>
+        <h2>Workflow Executed!</h2>
+        <p>Your sample workflow completed successfully.</p>
+        <div class="run-stats">
+            <div><small>Nodes executed</small><strong id="runNodes">5</strong></div>
+            <div><small>Execution time</small><strong>2.48 sec</strong></div>
+            <div><small>Status</small><strong class="success-text">Success</strong></div>
+        </div>
+        <button class="run-modal-btn" id="doneRun">Done</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
